@@ -1,0 +1,44 @@
+🔍 Inspecting: checkpoints/best/hierarchical_epoch10.pt
+/home/jialong/Programming/TKU_Assignments/114-2/NLP/llm-midi-analyzer/src/inspect_vqvae.py:90: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  ckpt = torch.load(args.checkpoint, map_location=device)
+
+🔍 VQ-VAE Inspector
+   Checkpoint : checkpoints/best/hierarchical_epoch10.pt
+   H5 cache   : data/lmd_8d_best_cache.h5
+   Num samples: 200
+   Device     : cuda
+============================================================
+   input_dim=8, hidden_dim=256, codebook_size=512
+  ⚠️  Checkpoint might be missing Decoder weights: Error(s) in loading state_dict for HierarchicalVQVAE:
+	Missing key(s) in state_dict: "dec.weight_ih_l0", "dec.weight_hh_l0", "dec.bias_ih_l0", "dec.bias_hh_l0", "out_head.weight", "out_head.bias". 
+
+📂 Loading samples from H5 cache...
+   Loaded 200 samples, shape: torch.Size([200, 128, 8])
+
+⚙️  Running VQ-VAE forward pass...
+Inferencing:   0%|                                       | 0/13 [00:00<?, ?it/s]Inferencing:   8%|██▍                            | 1/13 [00:00<00:01,  6.53it/s]Inferencing: 100%|██████████████████████████████| 13/13 [00:00<00:00, 61.73it/s]
+
+🎵 Generating MIDI reconstructions for first 10 samples...
+  📊 Chart saved → output/vqvae/codebook_usage.png
+OmniLLM-Muse VQ-VAE Inspection Report
+======================================
+Checkpoint : checkpoints/best/hierarchical_epoch10.pt
+Epoch      : 10
+Train loss : 3.09815214129477e-06
+
+Model
+  input_dim    = 8
+  hidden_dim   = 256
+  codebook_size = 512
+
+Reconstruction
+  MSE Loss (Samples) : 1074.772339
+
+Codebook Analysis
+  1-Bar (m1) PPLX : 44.93 (152/512 active)
+  4-Bar (m4) PPLX : 3.71 (8/512 active)
+
+MIDI Outputs saved to: output/vqvae/midi/
+
+✅ All outputs written to output/vqvae/
+✅ Outputs written to output/vqvae/

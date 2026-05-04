@@ -34,3 +34,16 @@ poetry.lock
 # (Keep poetry.lock in git if it's an application, exclude if it's a library)
 # For this project, we'll keep it as it's an app.
 
+# ── OmniLLM-Muse Data & Weights ──────────────────────────────
+llm-midi-analyzer/data/
+llm-midi-analyzer/checkpoints/
+llm-midi-analyzer/models/
+llm-midi-analyzer/midi/
+llm-midi-analyzer/output/
+llm-midi-analyzer/*.pt
+llm-midi-analyzer/*.pth
+llm-midi-analyzer/*.bin
+llm-midi-analyzer/*.safetensors
+llm-midi-analyzer/*.log
+llm-midi-analyzer/*.jsonl
+

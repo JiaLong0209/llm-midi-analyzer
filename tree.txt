@@ -1,0 +1,2253 @@
+anticipation 1.0 Anticipatory Autoregressive Models
+bitsandbytes 0.49.2 k-bit optimizers and matrix multiplication routines.
+├── numpy >=1.17
+├── packaging >=20.9
+└── torch >=2.3,<3
+    ├── filelock * 
+    ├── fsspec * 
+    │   └── aiohttp <4.0.0a0 || >4.0.0a0,<4.0.0a1 || >4.0.0a1 
+    │       ├── aiohappyeyeballs >=2.5.0 
+    │       ├── aiosignal >=1.4.0 
+    │       │   ├── frozenlist >=1.1.0 
+    │       │   └── typing-extensions >=4.2 
+    │       ├── attrs >=17.3.0 
+    │       ├── frozenlist >=1.1.1 (circular dependency aborted here)
+    │       ├── multidict >=4.5,<7.0 
+    │       ├── propcache >=0.2.0 
+    │       └── yarl >=1.17.0,<2.0 
+    │           ├── idna >=2.0 
+    │           ├── multidict >=4.0 (circular dependency aborted here)
+    │           └── propcache >=0.2.1 (circular dependency aborted here)
+    ├── jinja2 * 
+    │   └── markupsafe >=2.0 
+    ├── networkx * 
+    ├── nvidia-cublas-cu12 12.1.3.1 
+    ├── nvidia-cuda-cupti-cu12 12.1.105 
+    ├── nvidia-cuda-nvrtc-cu12 12.1.105 
+    ├── nvidia-cuda-runtime-cu12 12.1.105 
+    ├── nvidia-cudnn-cu12 9.1.0.70 
+    │   └── nvidia-cublas-cu12 * (circular dependency aborted here)
+    ├── nvidia-cufft-cu12 11.0.2.54 
+    ├── nvidia-curand-cu12 10.3.2.106 
+    ├── nvidia-cusolver-cu12 11.4.5.107 
+    │   ├── nvidia-cublas-cu12 * (circular dependency aborted here)
+    │   ├── nvidia-cusparse-cu12 * 
+    │   │   └── nvidia-nvjitlink-cu12 * 
+    │   └── nvidia-nvjitlink-cu12 * (circular dependency aborted here)
+    ├── nvidia-cusparse-cu12 12.1.0.106 (circular dependency aborted here)
+    ├── nvidia-nccl-cu12 2.21.5 
+    ├── nvidia-nvtx-cu12 12.1.105 
+    ├── setuptools * 
+    ├── sympy 1.13.1 
+    │   └── mpmath >=1.1.0,<1.4 
+    ├── triton 3.1.0 
+    │   └── filelock * (circular dependency aborted here)
+    └── typing-extensions >=4.8.0 (circular dependency aborted here)
+datasets 3.6.0 HuggingFace community-driven open-source library of datasets
+├── dill >=0.3.0,<0.3.9
+├── filelock *
+├── fsspec >=2023.1.0,<=2025.3.0
+│   └── aiohttp <4.0.0a0 || >4.0.0a0,<4.0.0a1 || >4.0.0a1 
+│       ├── aiohappyeyeballs >=2.5.0 
+│       ├── aiosignal >=1.4.0 
+│       │   ├── frozenlist >=1.1.0 
+│       │   └── typing-extensions >=4.2 
+│       ├── attrs >=17.3.0 
+│       ├── frozenlist >=1.1.1 (circular dependency aborted here)
+│       ├── multidict >=4.5,<7.0 
+│       ├── propcache >=0.2.0 
+│       └── yarl >=1.17.0,<2.0 
+│           ├── idna >=2.0 
+│           ├── multidict >=4.0 (circular dependency aborted here)
+│           └── propcache >=0.2.1 (circular dependency aborted here)
+├── huggingface-hub >=0.24.0
+│   ├── filelock * 
+│   ├── fsspec >=2023.5.0 
+│   │   └── aiohttp <4.0.0a0 || >4.0.0a0,<4.0.0a1 || >4.0.0a1 
+│   │       ├── aiohappyeyeballs >=2.5.0 
+│   │       ├── aiosignal >=1.4.0 
+│   │       │   ├── frozenlist >=1.1.0 
+│   │       │   └── typing-extensions >=4.2 
+│   │       ├── attrs >=17.3.0 
+│   │       ├── frozenlist >=1.1.1 (circular dependency aborted here)
+│   │       ├── multidict >=4.5,<7.0 
+│   │       ├── propcache >=0.2.0 
+│   │       └── yarl >=1.17.0,<2.0 
+│   │           ├── idna >=2.0 
+│   │           ├── multidict >=4.0 (circular dependency aborted here)
+│   │           └── propcache >=0.2.1 (circular dependency aborted here)
+│   ├── hf-xet >=1.1.3,<2.0.0 
+│   ├── packaging >=20.9 
+│   ├── pyyaml >=5.1 
+│   ├── requests * 
+│   │   ├── certifi >=2017.4.17 
+│   │   ├── charset-normalizer >=2,<4 
+│   │   ├── idna >=2.5,<4 (circular dependency aborted here)
+│   │   └── urllib3 >=1.21.1,<3 
+│   ├── tqdm >=4.42.1 
+│   │   └── colorama * 
+│   └── typing-extensions >=3.7.4.3 (circular dependency aborted here)
+├── multiprocess <0.70.17
+│   └── dill >=0.3.8 
+├── numpy >=1.17
+├── packaging *
+├── pandas *
+│   ├── numpy >=1.26.0 
+│   ├── python-dateutil >=2.8.2 
+│   │   └── six >=1.5 
+│   └── tzdata * 
+├── pyarrow >=15.0.0
+├── pyyaml >=5.1
+├── requests >=2.32.2
+│   ├── certifi >=2017.4.17 
+│   ├── charset-normalizer >=2,<4 
+│   ├── idna >=2.5,<4 
+│   └── urllib3 >=1.21.1,<3 
+├── tqdm >=4.66.3
+│   └── colorama * 
+└── xxhash *
+google-genai 1.66.0 GenAI Python SDK
+├── anyio >=4.8.0,<5.0.0
+│   ├── idna >=2.8 
+│   └── typing-extensions >=4.5 
+├── distro >=1.7.0,<2
+├── google-auth >=2.47.0,<3.0.0
+│   ├── cryptography >=38.0.3 
+│   │   └── cffi >=2.0.0 
+│   │       └── pycparser * 
+│   ├── pyasn1-modules >=0.2.1 
+│   │   └── pyasn1 >=0.6.1,<0.7.0 
+│   ├── requests >=2.20.0,<3.0.0 
+│   │   ├── certifi >=2017.4.17 
+│   │   ├── charset-normalizer >=2,<4 
+│   │   ├── idna >=2.5,<4 
+│   │   └── urllib3 >=1.21.1,<3 
+│   └── rsa >=3.1.4,<5 
+│       └── pyasn1 >=0.1.3 (circular dependency aborted here)
+├── httpx >=0.28.1,<1.0.0
+│   ├── anyio * 
+│   │   ├── idna >=2.8 
+│   │   └── typing-extensions >=4.5 
+│   ├── certifi * 
+│   ├── httpcore ==1.* 
+│   │   ├── certifi * (circular dependency aborted here)
+│   │   └── h11 >=0.16 
+│   └── idna * (circular dependency aborted here)
+├── pydantic >=2.9.0,<3.0.0
+│   ├── annotated-types >=0.6.0 
+│   ├── pydantic-core 2.41.5 
+│   │   └── typing-extensions >=4.14.1 
+│   ├── typing-extensions >=4.14.1 (circular dependency aborted here)
+│   └── typing-inspection >=0.4.2 
+│       └── typing-extensions >=4.12.0 (circular dependency aborted here)
+├── requests >=2.28.1,<3.0.0
+│   ├── certifi >=2017.4.17 
+│   ├── charset-normalizer >=2,<4 
+│   ├── idna >=2.5,<4 
+│   └── urllib3 >=1.21.1,<3 
+├── sniffio *
+├── tenacity >=8.2.3,<9.2.0
+├── typing-extensions >=4.11.0,<5.0.0
+└── websockets >=13.0.0,<17.0
+google-generativeai 0.8.6 Google Generative AI High level API client library and tools.
+├── google-ai-generativelanguage 0.6.15
+│   ├── google-api-core >=1.34.1,<2.0.dev0 || >=2.11.dev0,<3.0.0dev 
+│   │   ├── google-auth >=2.14.1,<3.0.0 
+│   │   │   ├── cryptography >=38.0.3 
+│   │   │   │   └── cffi >=2.0.0 
+│   │   │   │       └── pycparser * 
+│   │   │   ├── pyasn1-modules >=0.2.1 
+│   │   │   │   └── pyasn1 >=0.6.1,<0.7.0 
+│   │   │   ├── requests >=2.20.0,<3.0.0 
+│   │   │   │   ├── certifi >=2017.4.17 
+│   │   │   │   ├── charset-normalizer >=2,<4 
+│   │   │   │   ├── idna >=2.5,<4 
+│   │   │   │   └── urllib3 >=1.21.1,<3 
+│   │   │   └── rsa >=3.1.4,<5 
+│   │   │       └── pyasn1 >=0.1.3 (circular dependency aborted here)
+│   │   ├── googleapis-common-protos >=1.56.3,<2.0.0 
+│   │   │   └── protobuf >=3.20.2,<4.21.1 || >4.21.1,<4.21.2 || >4.21.2,<4.21.3 || >4.21.3,<4.21.4 || >4.21.4,<4.21.5 || >4.21.5,<7.0.0 
+│   │   ├── grpcio >=1.49.1,<2.0.0 
+│   │   │   └── typing-extensions >=4.12,<5.0 
+│   │   ├── grpcio-status >=1.49.1,<2.0.0 
+│   │   │   ├── googleapis-common-protos >=1.5.5 (circular dependency aborted here)
+│   │   │   ├── grpcio >=1.71.2 (circular dependency aborted here)
+│   │   │   └── protobuf >=5.26.1,<6.0dev (circular dependency aborted here)
+│   │   ├── proto-plus >=1.22.3,<2.0.0 
+│   │   │   └── protobuf >=3.19.0,<7.0.0 (circular dependency aborted here)
+│   │   ├── protobuf >=4.25.8,<7.0.0 (circular dependency aborted here)
+│   │   └── requests >=2.20.0,<3.0.0 (circular dependency aborted here)
+│   ├── google-auth >=2.14.1,<2.24.0 || >2.24.0,<2.25.0 || >2.25.0,<3.0.0dev (circular dependency aborted here)
+│   ├── proto-plus >=1.22.3,<2.0.0dev (circular dependency aborted here)
+│   └── protobuf >=3.20.2,<4.21.0 || >4.21.0,<4.21.1 || >4.21.1,<4.21.2 || >4.21.2,<4.21.3 || >4.21.3,<4.21.4 || >4.21.4,<4.21.5 || >4.21.5,<6.0.0dev (circular dependency aborted here)
+├── google-api-core *
+│   ├── google-auth >=2.14.1,<3.0.0 
+│   │   ├── cryptography >=38.0.3 
+│   │   │   └── cffi >=2.0.0 
+│   │   │       └── pycparser * 
+│   │   ├── pyasn1-modules >=0.2.1 
+│   │   │   └── pyasn1 >=0.6.1,<0.7.0 
+│   │   ├── requests >=2.20.0,<3.0.0 
+│   │   │   ├── certifi >=2017.4.17 
+│   │   │   ├── charset-normalizer >=2,<4 
+│   │   │   ├── idna >=2.5,<4 
+│   │   │   └── urllib3 >=1.21.1,<3 
+│   │   └── rsa >=3.1.4,<5 
+│   │       └── pyasn1 >=0.1.3 (circular dependency aborted here)
+│   ├── googleapis-common-protos >=1.56.3,<2.0.0 
+│   │   └── protobuf >=3.20.2,<4.21.1 || >4.21.1,<4.21.2 || >4.21.2,<4.21.3 || >4.21.3,<4.21.4 || >4.21.4,<4.21.5 || >4.21.5,<7.0.0 
+│   ├── grpcio >=1.49.1,<2.0.0 
+│   │   └── typing-extensions >=4.12,<5.0 
+│   ├── grpcio-status >=1.49.1,<2.0.0 
+│   │   ├── googleapis-common-protos >=1.5.5 (circular dependency aborted here)
+│   │   ├── grpcio >=1.71.2 (circular dependency aborted here)
+│   │   └── protobuf >=5.26.1,<6.0dev (circular dependency aborted here)
+│   ├── proto-plus >=1.22.3,<2.0.0 
+│   │   └── protobuf >=3.19.0,<7.0.0 (circular dependency aborted here)
+│   ├── protobuf >=4.25.8,<7.0.0 (circular dependency aborted here)
+│   └── requests >=2.20.0,<3.0.0 (circular dependency aborted here)
+├── google-api-python-client *
+│   ├── google-api-core >=1.31.5,<2.0.dev0 || >2.3.0,<3.0.0 
+│   │   ├── google-auth >=2.14.1,<3.0.0 
+│   │   │   ├── cryptography >=38.0.3 
+│   │   │   │   └── cffi >=2.0.0 
+│   │   │   │       └── pycparser * 
+│   │   │   ├── pyasn1-modules >=0.2.1 
+│   │   │   │   └── pyasn1 >=0.6.1,<0.7.0 
+│   │   │   ├── requests >=2.20.0,<3.0.0 
+│   │   │   │   ├── certifi >=2017.4.17 
+│   │   │   │   ├── charset-normalizer >=2,<4 
+│   │   │   │   ├── idna >=2.5,<4 
+│   │   │   │   └── urllib3 >=1.21.1,<3 
+│   │   │   └── rsa >=3.1.4,<5 
+│   │   │       └── pyasn1 >=0.1.3 (circular dependency aborted here)
+│   │   ├── googleapis-common-protos >=1.56.3,<2.0.0 
+│   │   │   └── protobuf >=3.20.2,<4.21.1 || >4.21.1,<4.21.2 || >4.21.2,<4.21.3 || >4.21.3,<4.21.4 || >4.21.4,<4.21.5 || >4.21.5,<7.0.0 
+│   │   ├── grpcio >=1.49.1,<2.0.0 
+│   │   │   └── typing-extensions >=4.12,<5.0 
+│   │   ├── grpcio-status >=1.49.1,<2.0.0 
+│   │   │   ├── googleapis-common-protos >=1.5.5 (circular dependency aborted here)
+│   │   │   ├── grpcio >=1.71.2 (circular dependency aborted here)
+│   │   │   └── protobuf >=5.26.1,<6.0dev (circular dependency aborted here)
+│   │   ├── proto-plus >=1.22.3,<2.0.0 
+│   │   │   └── protobuf >=3.19.0,<7.0.0 (circular dependency aborted here)
+│   │   ├── protobuf >=4.25.8,<7.0.0 (circular dependency aborted here)
+│   │   └── requests >=2.20.0,<3.0.0 (circular dependency aborted here)
+│   ├── google-auth >=1.32.0,<2.24.0 || >2.24.0,<2.25.0 || >2.25.0,<3.0.0 (circular dependency aborted here)
+│   ├── google-auth-httplib2 >=0.2.0,<1.0.0 
+│   │   ├── google-auth >=1.32.0,<3.0.0 (circular dependency aborted here)
+│   │   └── httplib2 >=0.19.0,<1.0.0 
+│   │       └── pyparsing >=3.1,<4 
+│   ├── httplib2 >=0.19.0,<1.0.0 (circular dependency aborted here)
+│   └── uritemplate >=3.0.1,<5 
+├── google-auth >=2.15.0
+│   ├── cryptography >=38.0.3 
+│   │   └── cffi >=2.0.0 
+│   │       └── pycparser * 
+│   ├── pyasn1-modules >=0.2.1 
+│   │   └── pyasn1 >=0.6.1,<0.7.0 
+│   ├── requests >=2.20.0,<3.0.0 
+│   │   ├── certifi >=2017.4.17 
+│   │   ├── charset-normalizer >=2,<4 
+│   │   ├── idna >=2.5,<4 
+│   │   └── urllib3 >=1.21.1,<3 
+│   └── rsa >=3.1.4,<5 
+│       └── pyasn1 >=0.1.3 (circular dependency aborted here)
+├── protobuf *
+├── pydantic *
+│   ├── annotated-types >=0.6.0 
+│   ├── pydantic-core 2.41.5 
+│   │   └── typing-extensions >=4.14.1 
+│   ├── typing-extensions >=4.14.1 (circular dependency aborted here)
+│   └── typing-inspection >=0.4.2 
+│       └── typing-extensions >=4.12.0 (circular dependency aborted here)
+├── tqdm *
+│   └── colorama * 
+└── typing-extensions *
+h5py 3.16.0 Read and write HDF5 files from Python
+└── numpy >=1.21.2
+huggingface-hub 0.36.2 Client library to download and publish models, datasets and other repos on the huggingface.co hub
+├── filelock *
+├── fsspec >=2023.5.0
+│   └── aiohttp <4.0.0a0 || >4.0.0a0,<4.0.0a1 || >4.0.0a1 
+│       ├── aiohappyeyeballs >=2.5.0 
+│       ├── aiosignal >=1.4.0 
+│       │   ├── frozenlist >=1.1.0 
+│       │   └── typing-extensions >=4.2 
+│       ├── attrs >=17.3.0 
+│       ├── frozenlist >=1.1.1 (circular dependency aborted here)
+│       ├── multidict >=4.5,<7.0 
+│       ├── propcache >=0.2.0 
+│       └── yarl >=1.17.0,<2.0 
+│           ├── idna >=2.0 
+│           ├── multidict >=4.0 (circular dependency aborted here)
+│           └── propcache >=0.2.1 (circular dependency aborted here)
+├── hf-xet >=1.1.3,<2.0.0
+├── packaging >=20.9
+├── pyyaml >=5.1
+├── requests *
+│   ├── certifi >=2017.4.17 
+│   ├── charset-normalizer >=2,<4 
+│   ├── idna >=2.5,<4 
+│   └── urllib3 >=1.21.1,<3 
+├── tqdm >=4.42.1
+│   └── colorama * 
+└── typing-extensions >=3.7.4.3
+librosa 0.11.0 Python module for audio and music processing
+├── audioread >=2.1.9
+├── decorator >=4.3.0
+├── joblib >=1.0
+├── lazy-loader >=0.1
+│   └── packaging * 
+├── msgpack >=1.0
+├── numba >=0.51.0
+│   ├── llvmlite ==0.47.* 
+│   └── numpy >=1.22,<2.5 
+├── numpy >=1.22.3
+├── pooch >=1.1
+│   ├── packaging >=20.0 
+│   ├── platformdirs >=2.5.0 
+│   └── requests >=2.19.0 
+│       ├── certifi >=2017.4.17 
+│       ├── charset-normalizer >=2,<4 
+│       ├── idna >=2.5,<4 
+│       └── urllib3 >=1.21.1,<3 
+├── scikit-learn >=1.1.0
+│   ├── joblib >=1.3.0 
+│   ├── numpy >=1.24.1 
+│   ├── scipy >=1.10.0 
+│   │   └── numpy >=1.26.4,<2.7 (circular dependency aborted here)
+│   └── threadpoolctl >=3.2.0 
+├── scipy >=1.6.0
+│   └── numpy >=1.26.4,<2.7 
+├── soundfile >=0.12.1
+│   ├── cffi >=1.0 
+│   │   └── pycparser * 
+│   └── numpy * 
+├── soxr >=0.3.2
+│   └── numpy * 
+└── typing-extensions >=4.1.1
+midi2audio 0.1.1 Easy to use MIDI to audio or playback via FluidSynth
+miditok 3.0.6.post1 MIDI / symbolic music tokenizers for Deep Learning models.
+├── huggingface-hub >=0.16.4
+│   ├── filelock * 
+│   ├── fsspec >=2023.5.0 
+│   │   └── aiohttp <4.0.0a0 || >4.0.0a0,<4.0.0a1 || >4.0.0a1 
+│   │       ├── aiohappyeyeballs >=2.5.0 
+│   │       ├── aiosignal >=1.4.0 
+│   │       │   ├── frozenlist >=1.1.0 
+│   │       │   └── typing-extensions >=4.2 
+│   │       ├── attrs >=17.3.0 
+│   │       ├── frozenlist >=1.1.1 (circular dependency aborted here)
+│   │       ├── multidict >=4.5,<7.0 
+│   │       ├── propcache >=0.2.0 
+│   │       └── yarl >=1.17.0,<2.0 
+│   │           ├── idna >=2.0 
+│   │           ├── multidict >=4.0 (circular dependency aborted here)
+│   │           └── propcache >=0.2.1 (circular dependency aborted here)
+│   ├── hf-xet >=1.1.3,<2.0.0 
+│   ├── packaging >=20.9 
+│   ├── pyyaml >=5.1 
+│   ├── requests * 
+│   │   ├── certifi >=2017.4.17 
+│   │   ├── charset-normalizer >=2,<4 
+│   │   ├── idna >=2.5,<4 (circular dependency aborted here)
+│   │   └── urllib3 >=1.21.1,<3 
+│   ├── tqdm >=4.42.1 
+│   │   └── colorama * 
+│   └── typing-extensions >=3.7.4.3 (circular dependency aborted here)
+├── numpy >=1.19
+├── symusic >=0.5.0
+│   ├── numpy * 
+│   ├── platformdirs * 
+│   └── pysmartdl * 
+├── tokenizers >=0.13.0
+│   └── huggingface-hub >=0.16.4,<1.0 
+│       ├── filelock * 
+│       ├── fsspec >=2023.5.0 
+│       │   └── aiohttp <4.0.0a0 || >4.0.0a0,<4.0.0a1 || >4.0.0a1 
+│       │       ├── aiohappyeyeballs >=2.5.0 
+│       │       ├── aiosignal >=1.4.0 
+│       │       │   ├── frozenlist >=1.1.0 
+│       │       │   └── typing-extensions >=4.2 
+│       │       ├── attrs >=17.3.0 
+│       │       ├── frozenlist >=1.1.1 (circular dependency aborted here)
+│       │       ├── multidict >=4.5,<7.0 
+│       │       ├── propcache >=0.2.0 
+│       │       └── yarl >=1.17.0,<2.0 
+│       │           ├── idna >=2.0 
+│       │           ├── multidict >=4.0 (circular dependency aborted here)
+│       │           └── propcache >=0.2.1 (circular dependency aborted here)
+│       ├── hf-xet >=1.1.3,<2.0.0 
+│       ├── packaging >=20.9 
+│       ├── pyyaml >=5.1 
+│       ├── requests * 
+│       │   ├── certifi >=2017.4.17 
+│       │   ├── charset-normalizer >=2,<4 
+│       │   ├── idna >=2.5,<4 (circular dependency aborted here)
+│       │   └── urllib3 >=1.21.1,<3 
+│       ├── tqdm >=4.42.1 
+│       │   └── colorama * 
+│       └── typing-extensions >=3.7.4.3 (circular dependency aborted here)
+└── tqdm *
+    └── colorama * 
+mido 1.3.3 MIDI Objects for Python
+└── packaging *
+music21 9.9.1 A Toolkit for Computer-Aided Musical Analysis and Computational Musicology.
+├── chardet *
+├── joblib *
+├── jsonpickle *
+├── matplotlib *
+│   ├── contourpy >=1.0.1 
+│   │   └── numpy >=1.25 
+│   ├── cycler >=0.10 
+│   ├── fonttools >=4.22.0 
+│   ├── kiwisolver >=1.3.1 
+│   ├── numpy >=1.23 (circular dependency aborted here)
+│   ├── packaging >=20.0 
+│   ├── pillow >=8 
+│   ├── pyparsing >=3 
+│   └── python-dateutil >=2.7 
+│       └── six >=1.5 
+├── more-itertools *
+├── numpy >=1.26.4
+├── requests *
+│   ├── certifi >=2017.4.17 
+│   ├── charset-normalizer >=2,<4 
+│   ├── idna >=2.5,<4 
+│   └── urllib3 >=1.21.1,<3 
+└── webcolors >=1.5
+peft 0.19.1 Parameter-Efficient Fine-Tuning (PEFT)
+├── accelerate >=0.21.0
+│   ├── huggingface-hub >=0.21.0 
+│   │   ├── filelock * 
+│   │   ├── fsspec >=2023.5.0 
+│   │   │   └── aiohttp <4.0.0a0 || >4.0.0a0,<4.0.0a1 || >4.0.0a1 
+│   │   │       ├── aiohappyeyeballs >=2.5.0 
+│   │   │       ├── aiosignal >=1.4.0 
+│   │   │       │   ├── frozenlist >=1.1.0 
+│   │   │       │   └── typing-extensions >=4.2 
+│   │   │       ├── attrs >=17.3.0 
+│   │   │       ├── frozenlist >=1.1.1 (circular dependency aborted here)
+│   │   │       ├── multidict >=4.5,<7.0 
+│   │   │       ├── propcache >=0.2.0 
+│   │   │       └── yarl >=1.17.0,<2.0 
+│   │   │           ├── idna >=2.0 
+│   │   │           ├── multidict >=4.0 (circular dependency aborted here)
+│   │   │           └── propcache >=0.2.1 (circular dependency aborted here)
+│   │   ├── hf-xet >=1.1.3,<2.0.0 
+│   │   ├── packaging >=20.9 
+│   │   ├── pyyaml >=5.1 
+│   │   ├── requests * 
+│   │   │   ├── certifi >=2017.4.17 
+│   │   │   ├── charset-normalizer >=2,<4 
+│   │   │   ├── idna >=2.5,<4 (circular dependency aborted here)
+│   │   │   └── urllib3 >=1.21.1,<3 
+│   │   ├── tqdm >=4.42.1 
+│   │   │   └── colorama * 
+│   │   └── typing-extensions >=3.7.4.3 (circular dependency aborted here)
+│   ├── numpy >=1.17 
+│   ├── packaging >=20.0 (circular dependency aborted here)
+│   ├── psutil * 
+│   ├── pyyaml * (circular dependency aborted here)
+│   ├── safetensors >=0.4.3 
+│   └── torch >=2.0.0 
+│       ├── filelock * (circular dependency aborted here)
+│       ├── fsspec * (circular dependency aborted here)
+│       ├── jinja2 * 
+│       │   └── markupsafe >=2.0 
+│       ├── networkx * 
+│       ├── nvidia-cublas-cu12 12.1.3.1 
+│       ├── nvidia-cuda-cupti-cu12 12.1.105 
+│       ├── nvidia-cuda-nvrtc-cu12 12.1.105 
+│       ├── nvidia-cuda-runtime-cu12 12.1.105 
+│       ├── nvidia-cudnn-cu12 9.1.0.70 
+│       │   └── nvidia-cublas-cu12 * (circular dependency aborted here)
+│       ├── nvidia-cufft-cu12 11.0.2.54 
+│       ├── nvidia-curand-cu12 10.3.2.106 
+│       ├── nvidia-cusolver-cu12 11.4.5.107 
+│       │   ├── nvidia-cublas-cu12 * (circular dependency aborted here)
+│       │   ├── nvidia-cusparse-cu12 * 
+│       │   │   └── nvidia-nvjitlink-cu12 * 
+│       │   └── nvidia-nvjitlink-cu12 * (circular dependency aborted here)
+│       ├── nvidia-cusparse-cu12 12.1.0.106 (circular dependency aborted here)
+│       ├── nvidia-nccl-cu12 2.21.5 
+│       ├── nvidia-nvtx-cu12 12.1.105 
+│       ├── setuptools * 
+│       ├── sympy 1.13.1 
+│       │   └── mpmath >=1.1.0,<1.4 
+│       ├── triton 3.1.0 
+│       │   └── filelock * (circular dependency aborted here)
+│       └── typing-extensions >=4.8.0 (circular dependency aborted here)
+├── huggingface-hub >=0.25.0
+│   ├── filelock * 
+│   ├── fsspec >=2023.5.0 
+│   │   └── aiohttp <4.0.0a0 || >4.0.0a0,<4.0.0a1 || >4.0.0a1 
+│   │       ├── aiohappyeyeballs >=2.5.0 
+│   │       ├── aiosignal >=1.4.0 
+│   │       │   ├── frozenlist >=1.1.0 
+│   │       │   └── typing-extensions >=4.2 
+│   │       ├── attrs >=17.3.0 
+│   │       ├── frozenlist >=1.1.1 (circular dependency aborted here)
+│   │       ├── multidict >=4.5,<7.0 
+│   │       ├── propcache >=0.2.0 
+│   │       └── yarl >=1.17.0,<2.0 
+│   │           ├── idna >=2.0 
+│   │           ├── multidict >=4.0 (circular dependency aborted here)
+│   │           └── propcache >=0.2.1 (circular dependency aborted here)
+│   ├── hf-xet >=1.1.3,<2.0.0 
+│   ├── packaging >=20.9 
+│   ├── pyyaml >=5.1 
+│   ├── requests * 
+│   │   ├── certifi >=2017.4.17 
+│   │   ├── charset-normalizer >=2,<4 
+│   │   ├── idna >=2.5,<4 (circular dependency aborted here)
+│   │   └── urllib3 >=1.21.1,<3 
+│   ├── tqdm >=4.42.1 
+│   │   └── colorama * 
+│   └── typing-extensions >=3.7.4.3 (circular dependency aborted here)
+├── numpy >=1.17
+├── packaging >=20.0
+├── psutil *
+├── pyyaml *
+├── safetensors *
+├── torch >=1.13.0
+│   ├── filelock * 
+│   ├── fsspec * 
+│   │   └── aiohttp <4.0.0a0 || >4.0.0a0,<4.0.0a1 || >4.0.0a1 
+│   │       ├── aiohappyeyeballs >=2.5.0 
+│   │       ├── aiosignal >=1.4.0 
+│   │       │   ├── frozenlist >=1.1.0 
+│   │       │   └── typing-extensions >=4.2 
+│   │       ├── attrs >=17.3.0 
+│   │       ├── frozenlist >=1.1.1 (circular dependency aborted here)
+│   │       ├── multidict >=4.5,<7.0 
+│   │       ├── propcache >=0.2.0 
+│   │       └── yarl >=1.17.0,<2.0 
+│   │           ├── idna >=2.0 
+│   │           ├── multidict >=4.0 (circular dependency aborted here)
+│   │           └── propcache >=0.2.1 (circular dependency aborted here)
+│   ├── jinja2 * 
+│   │   └── markupsafe >=2.0 
+│   ├── networkx * 
+│   ├── nvidia-cublas-cu12 12.1.3.1 
+│   ├── nvidia-cuda-cupti-cu12 12.1.105 
+│   ├── nvidia-cuda-nvrtc-cu12 12.1.105 
+│   ├── nvidia-cuda-runtime-cu12 12.1.105 
+│   ├── nvidia-cudnn-cu12 9.1.0.70 
+│   │   └── nvidia-cublas-cu12 * (circular dependency aborted here)
+│   ├── nvidia-cufft-cu12 11.0.2.54 
+│   ├── nvidia-curand-cu12 10.3.2.106 
+│   ├── nvidia-cusolver-cu12 11.4.5.107 
+│   │   ├── nvidia-cublas-cu12 * (circular dependency aborted here)
+│   │   ├── nvidia-cusparse-cu12 * 
+│   │   │   └── nvidia-nvjitlink-cu12 * 
+│   │   └── nvidia-nvjitlink-cu12 * (circular dependency aborted here)
+│   ├── nvidia-cusparse-cu12 12.1.0.106 (circular dependency aborted here)
+│   ├── nvidia-nccl-cu12 2.21.5 
+│   ├── nvidia-nvtx-cu12 12.1.105 
+│   ├── setuptools * 
+│   ├── sympy 1.13.1 
+│   │   └── mpmath >=1.1.0,<1.4 
+│   ├── triton 3.1.0 
+│   │   └── filelock * (circular dependency aborted here)
+│   └── typing-extensions >=4.8.0 (circular dependency aborted here)
+├── tqdm *
+│   └── colorama * 
+└── transformers *
+    ├── filelock * 
+    ├── huggingface-hub >=0.30.0,<1.0 
+    │   ├── filelock * (circular dependency aborted here)
+    │   ├── fsspec >=2023.5.0 
+    │   │   └── aiohttp <4.0.0a0 || >4.0.0a0,<4.0.0a1 || >4.0.0a1 
+    │   │       ├── aiohappyeyeballs >=2.5.0 
+    │   │       ├── aiosignal >=1.4.0 
+    │   │       │   ├── frozenlist >=1.1.0 
+    │   │       │   └── typing-extensions >=4.2 
+    │   │       ├── attrs >=17.3.0 
+    │   │       ├── frozenlist >=1.1.1 (circular dependency aborted here)
+    │   │       ├── multidict >=4.5,<7.0 
+    │   │       ├── propcache >=0.2.0 
+    │   │       └── yarl >=1.17.0,<2.0 
+    │   │           ├── idna >=2.0 
+    │   │           ├── multidict >=4.0 (circular dependency aborted here)
+    │   │           └── propcache >=0.2.1 (circular dependency aborted here)
+    │   ├── hf-xet >=1.1.3,<2.0.0 
+    │   ├── packaging >=20.9 
+    │   ├── pyyaml >=5.1 
+    │   ├── requests * 
+    │   │   ├── certifi >=2017.4.17 
+    │   │   ├── charset-normalizer >=2,<4 
+    │   │   ├── idna >=2.5,<4 (circular dependency aborted here)
+    │   │   └── urllib3 >=1.21.1,<3 
+    │   ├── tqdm >=4.42.1 
+    │   │   └── colorama * 
+    │   └── typing-extensions >=3.7.4.3 (circular dependency aborted here)
+    ├── numpy >=1.17 
+    ├── packaging >=20.0 (circular dependency aborted here)
+    ├── pyyaml >=5.1 (circular dependency aborted here)
+    ├── regex !=2019.12.17 
+    ├── requests * (circular dependency aborted here)
+    ├── safetensors >=0.4.3 
+    ├── tokenizers >=0.21,<0.22 
+    │   └── huggingface-hub >=0.16.4,<1.0 (circular dependency aborted here)
+    └── tqdm >=4.27 (circular dependency aborted here)
+pretty-midi 0.2.11 Functions and classes for handling MIDI data conveniently.
+├── importlib-resources *
+├── mido >=1.1.16
+│   └── packaging * 
+├── numpy >=1.7.0
+└── six *
+pydantic 2.12.5 Data validation using Python type hints
+├── annotated-types >=0.6.0
+├── pydantic-core 2.41.5
+│   └── typing-extensions >=4.14.1 
+├── typing-extensions >=4.14.1
+└── typing-inspection >=0.4.2
+    └── typing-extensions >=4.12.0 
+pygame 2.6.1 Python Game Development
+python-dotenv 1.2.2 Read key-value pairs from a .env file and set them as environment variables
+scipy 1.17.1 Fundamental algorithms for scientific computing in Python
+└── numpy >=1.26.4,<2.7
+symusic 0.6.0 A high performance MIDI file parser with comprehensible interface.
+├── numpy *
+├── platformdirs *
+└── pysmartdl *
+tiktoken 0.12.0 tiktoken is a fast BPE tokeniser for use with OpenAI's models
+├── regex >=2022.1.18
+└── requests >=2.26.0
+    ├── certifi >=2017.4.17 
+    ├── charset-normalizer >=2,<4 
+    ├── idna >=2.5,<4 
+    └── urllib3 >=1.21.1,<3 
+torch 2.5.1+cu121 Tensors and Dynamic neural networks in Python with strong GPU acceleration
+├── filelock *
+├── fsspec *
+│   └── aiohttp <4.0.0a0 || >4.0.0a0,<4.0.0a1 || >4.0.0a1 
+│       ├── aiohappyeyeballs >=2.5.0 
+│       ├── aiosignal >=1.4.0 
+│       │   ├── frozenlist >=1.1.0 
+│       │   └── typing-extensions >=4.2 
+│       ├── attrs >=17.3.0 
+│       ├── frozenlist >=1.1.1 (circular dependency aborted here)
+│       ├── multidict >=4.5,<7.0 
+│       ├── propcache >=0.2.0 
+│       └── yarl >=1.17.0,<2.0 
+│           ├── idna >=2.0 
+│           ├── multidict >=4.0 (circular dependency aborted here)
+│           └── propcache >=0.2.1 (circular dependency aborted here)
+├── jinja2 *
+│   └── markupsafe >=2.0 
+├── networkx *
+├── nvidia-cublas-cu12 12.1.3.1
+├── nvidia-cuda-cupti-cu12 12.1.105
+├── nvidia-cuda-nvrtc-cu12 12.1.105
+├── nvidia-cuda-runtime-cu12 12.1.105
+├── nvidia-cudnn-cu12 9.1.0.70
+│   └── nvidia-cublas-cu12 * 
+├── nvidia-cufft-cu12 11.0.2.54
+├── nvidia-curand-cu12 10.3.2.106
+├── nvidia-cusolver-cu12 11.4.5.107
+│   ├── nvidia-cublas-cu12 * 
+│   ├── nvidia-cusparse-cu12 * 
+│   │   └── nvidia-nvjitlink-cu12 * 
+│   └── nvidia-nvjitlink-cu12 * (circular dependency aborted here)
+├── nvidia-cusparse-cu12 12.1.0.106
+│   └── nvidia-nvjitlink-cu12 * 
+├── nvidia-nccl-cu12 2.21.5
+├── nvidia-nvtx-cu12 12.1.105
+├── setuptools *
+├── sympy 1.13.1
+│   └── mpmath >=1.1.0,<1.4 
+├── triton 3.1.0
+│   └── filelock * 
+└── typing-extensions >=4.8.0
+tqdm 4.67.3 Fast, Extensible Progress Meter
+└── colorama *
+transformers 4.51.3 State-of-the-art Machine Learning for JAX, PyTorch and TensorFlow
+├── filelock *
+├── huggingface-hub >=0.30.0,<1.0
+│   ├── filelock * 
+│   ├── fsspec >=2023.5.0 
+│   │   └── aiohttp <4.0.0a0 || >4.0.0a0,<4.0.0a1 || >4.0.0a1 
+│   │       ├── aiohappyeyeballs >=2.5.0 
+│   │       ├── aiosignal >=1.4.0 
+│   │       │   ├── frozenlist >=1.1.0 
+│   │       │   └── typing-extensions >=4.2 
+│   │       ├── attrs >=17.3.0 
+│   │       ├── frozenlist >=1.1.1 (circular dependency aborted here)
+│   │       ├── multidict >=4.5,<7.0 
+│   │       ├── propcache >=0.2.0 
+│   │       └── yarl >=1.17.0,<2.0 
+│   │           ├── idna >=2.0 
+│   │           ├── multidict >=4.0 (circular dependency aborted here)
+│   │           └── propcache >=0.2.1 (circular dependency aborted here)
+│   ├── hf-xet >=1.1.3,<2.0.0 
+│   ├── packaging >=20.9 
+│   ├── pyyaml >=5.1 
+│   ├── requests * 
+│   │   ├── certifi >=2017.4.17 
+│   │   ├── charset-normalizer >=2,<4 
+│   │   ├── idna >=2.5,<4 (circular dependency aborted here)
+│   │   └── urllib3 >=1.21.1,<3 
+│   ├── tqdm >=4.42.1 
+│   │   └── colorama * 
+│   └── typing-extensions >=3.7.4.3 (circular dependency aborted here)
+├── numpy >=1.17
+├── packaging >=20.0
+├── pyyaml >=5.1
+├── regex !=2019.12.17
+├── requests *
+│   ├── certifi >=2017.4.17 
+│   ├── charset-normalizer >=2,<4 
+│   ├── idna >=2.5,<4 
+│   └── urllib3 >=1.21.1,<3 
+├── safetensors >=0.4.3
+├── tokenizers >=0.21,<0.22
+│   └── huggingface-hub >=0.16.4,<1.0 
+│       ├── filelock * 
+│       ├── fsspec >=2023.5.0 
+│       │   └── aiohttp <4.0.0a0 || >4.0.0a0,<4.0.0a1 || >4.0.0a1 
+│       │       ├── aiohappyeyeballs >=2.5.0 
+│       │       ├── aiosignal >=1.4.0 
+│       │       │   ├── frozenlist >=1.1.0 
+│       │       │   └── typing-extensions >=4.2 
+│       │       ├── attrs >=17.3.0 
+│       │       ├── frozenlist >=1.1.1 (circular dependency aborted here)
+│       │       ├── multidict >=4.5,<7.0 
+│       │       ├── propcache >=0.2.0 
+│       │       └── yarl >=1.17.0,<2.0 
+│       │           ├── idna >=2.0 
+│       │           ├── multidict >=4.0 (circular dependency aborted here)
+│       │           └── propcache >=0.2.1 (circular dependency aborted here)
+│       ├── hf-xet >=1.1.3,<2.0.0 
+│       ├── packaging >=20.9 
+│       ├── pyyaml >=5.1 
+│       ├── requests * 
+│       │   ├── certifi >=2017.4.17 
+│       │   ├── charset-normalizer >=2,<4 
+│       │   ├── idna >=2.5,<4 (circular dependency aborted here)
+│       │   └── urllib3 >=1.21.1,<3 
+│       ├── tqdm >=4.42.1 
+│       │   └── colorama * 
+│       └── typing-extensions >=3.7.4.3 (circular dependency aborted here)
+└── tqdm >=4.27
+    └── colorama * 
+typing-extensions 4.15.0 Backported and Experimental Type Hints for Python 3.9+
+unsloth 2026.4.8 2-5X faster training, reinforcement learning & finetuning
+├── accelerate >=0.34.1
+│   ├── huggingface-hub >=0.21.0 
+│   │   ├── filelock * 
+│   │   ├── fsspec >=2023.5.0 
+│   │   │   └── aiohttp <4.0.0a0 || >4.0.0a0,<4.0.0a1 || >4.0.0a1 
+│   │   │       ├── aiohappyeyeballs >=2.5.0 
+│   │   │       ├── aiosignal >=1.4.0 
+│   │   │       │   ├── frozenlist >=1.1.0 
+│   │   │       │   └── typing-extensions >=4.2 
+│   │   │       ├── attrs >=17.3.0 
+│   │   │       ├── frozenlist >=1.1.1 (circular dependency aborted here)
+│   │   │       ├── multidict >=4.5,<7.0 
+│   │   │       ├── propcache >=0.2.0 
+│   │   │       └── yarl >=1.17.0,<2.0 
+│   │   │           ├── idna >=2.0 
+│   │   │           ├── multidict >=4.0 (circular dependency aborted here)
+│   │   │           └── propcache >=0.2.1 (circular dependency aborted here)
+│   │   ├── hf-xet >=1.1.3,<2.0.0 
+│   │   ├── packaging >=20.9 
+│   │   ├── pyyaml >=5.1 
+│   │   ├── requests * 
+│   │   │   ├── certifi >=2017.4.17 
+│   │   │   ├── charset-normalizer >=2,<4 
+│   │   │   ├── idna >=2.5,<4 (circular dependency aborted here)
+│   │   │   └── urllib3 >=1.21.1,<3 
+│   │   ├── tqdm >=4.42.1 
+│   │   │   └── colorama * 
+│   │   └── typing-extensions >=3.7.4.3 (circular dependency aborted here)
+│   ├── numpy >=1.17 
+│   ├── packaging >=20.0 (circular dependency aborted here)
+│   ├── psutil * 
+│   ├── pyyaml * (circular dependency aborted here)
+│   ├── safetensors >=0.4.3 
+│   └── torch >=2.0.0 
+│       ├── filelock * (circular dependency aborted here)
+│       ├── fsspec * (circular dependency aborted here)
+│       ├── jinja2 * 
+│       │   └── markupsafe >=2.0 
+│       ├── networkx * 
+│       ├── nvidia-cublas-cu12 12.1.3.1 
+│       ├── nvidia-cuda-cupti-cu12 12.1.105 
+│       ├── nvidia-cuda-nvrtc-cu12 12.1.105 
+│       ├── nvidia-cuda-runtime-cu12 12.1.105 
+│       ├── nvidia-cudnn-cu12 9.1.0.70 
+│       │   └── nvidia-cublas-cu12 * (circular dependency aborted here)
+│       ├── nvidia-cufft-cu12 11.0.2.54 
+│       ├── nvidia-curand-cu12 10.3.2.106 
+│       ├── nvidia-cusolver-cu12 11.4.5.107 
+│       │   ├── nvidia-cublas-cu12 * (circular dependency aborted here)
+│       │   ├── nvidia-cusparse-cu12 * 
+│       │   │   └── nvidia-nvjitlink-cu12 * 
+│       │   └── nvidia-nvjitlink-cu12 * (circular dependency aborted here)
+│       ├── nvidia-cusparse-cu12 12.1.0.106 (circular dependency aborted here)
+│       ├── nvidia-nccl-cu12 2.21.5 
+│       ├── nvidia-nvtx-cu12 12.1.105 
+│       ├── setuptools * 
+│       ├── sympy 1.13.1 
+│       │   └── mpmath >=1.1.0,<1.4 
+│       ├── triton 3.1.0 
+│       │   └── filelock * (circular dependency aborted here)
+│       └── typing-extensions >=4.8.0 (circular dependency aborted here)
+├── bitsandbytes >=0.45.5,<0.46.0 || >0.46.0,<0.48.0 || >0.48.0
+│   ├── numpy >=1.17 
+│   ├── packaging >=20.9 
+│   └── torch >=2.3,<3 
+│       ├── filelock * 
+│       ├── fsspec * 
+│       │   └── aiohttp <4.0.0a0 || >4.0.0a0,<4.0.0a1 || >4.0.0a1 
+│       │       ├── aiohappyeyeballs >=2.5.0 
+│       │       ├── aiosignal >=1.4.0 
+│       │       │   ├── frozenlist >=1.1.0 
+│       │       │   └── typing-extensions >=4.2 
+│       │       ├── attrs >=17.3.0 
+│       │       ├── frozenlist >=1.1.1 (circular dependency aborted here)
+│       │       ├── multidict >=4.5,<7.0 
+│       │       ├── propcache >=0.2.0 
+│       │       └── yarl >=1.17.0,<2.0 
+│       │           ├── idna >=2.0 
+│       │           ├── multidict >=4.0 (circular dependency aborted here)
+│       │           └── propcache >=0.2.1 (circular dependency aborted here)
+│       ├── jinja2 * 
+│       │   └── markupsafe >=2.0 
+│       ├── networkx * 
+│       ├── nvidia-cublas-cu12 12.1.3.1 
+│       ├── nvidia-cuda-cupti-cu12 12.1.105 
+│       ├── nvidia-cuda-nvrtc-cu12 12.1.105 
+│       ├── nvidia-cuda-runtime-cu12 12.1.105 
+│       ├── nvidia-cudnn-cu12 9.1.0.70 
+│       │   └── nvidia-cublas-cu12 * (circular dependency aborted here)
+│       ├── nvidia-cufft-cu12 11.0.2.54 
+│       ├── nvidia-curand-cu12 10.3.2.106 
+│       ├── nvidia-cusolver-cu12 11.4.5.107 
+│       │   ├── nvidia-cublas-cu12 * (circular dependency aborted here)
+│       │   ├── nvidia-cusparse-cu12 * 
+│       │   │   └── nvidia-nvjitlink-cu12 * 
+│       │   └── nvidia-nvjitlink-cu12 * (circular dependency aborted here)
+│       ├── nvidia-cusparse-cu12 12.1.0.106 (circular dependency aborted here)
+│       ├── nvidia-nccl-cu12 2.21.5 
+│       ├── nvidia-nvtx-cu12 12.1.105 
+│       ├── setuptools * 
+│       ├── sympy 1.13.1 
+│       │   └── mpmath >=1.1.0,<1.4 
+│       ├── triton 3.1.0 
+│       │   └── filelock * (circular dependency aborted here)
+│       └── typing-extensions >=4.8.0 (circular dependency aborted here)
+├── datasets >=3.4.1,<4.0.dev0 || >4.1.0,<4.4.0
+│   ├── dill >=0.3.0,<0.3.9 
+│   ├── filelock * 
+│   ├── fsspec >=2023.1.0,<=2025.3.0 
+│   │   └── aiohttp <4.0.0a0 || >4.0.0a0,<4.0.0a1 || >4.0.0a1 
+│   │       ├── aiohappyeyeballs >=2.5.0 
+│   │       ├── aiosignal >=1.4.0 
+│   │       │   ├── frozenlist >=1.1.0 
+│   │       │   └── typing-extensions >=4.2 
+│   │       ├── attrs >=17.3.0 
+│   │       ├── frozenlist >=1.1.1 (circular dependency aborted here)
+│   │       ├── multidict >=4.5,<7.0 
+│   │       ├── propcache >=0.2.0 
+│   │       └── yarl >=1.17.0,<2.0 
+│   │           ├── idna >=2.0 
+│   │           ├── multidict >=4.0 (circular dependency aborted here)
+│   │           └── propcache >=0.2.1 (circular dependency aborted here)
+│   ├── huggingface-hub >=0.24.0 
+│   │   ├── filelock * (circular dependency aborted here)
+│   │   ├── fsspec >=2023.5.0 (circular dependency aborted here)
+│   │   ├── hf-xet >=1.1.3,<2.0.0 
+│   │   ├── packaging >=20.9 
+│   │   ├── pyyaml >=5.1 
+│   │   ├── requests * 
+│   │   │   ├── certifi >=2017.4.17 
+│   │   │   ├── charset-normalizer >=2,<4 
+│   │   │   ├── idna >=2.5,<4 (circular dependency aborted here)
+│   │   │   └── urllib3 >=1.21.1,<3 
+│   │   ├── tqdm >=4.42.1 
+│   │   │   └── colorama * 
+│   │   └── typing-extensions >=3.7.4.3 (circular dependency aborted here)
+│   ├── multiprocess <0.70.17 
+│   │   └── dill >=0.3.8 (circular dependency aborted here)
+│   ├── numpy >=1.17 
+│   ├── packaging * (circular dependency aborted here)
+│   ├── pandas * 
+│   │   ├── numpy >=1.26.0 (circular dependency aborted here)
+│   │   ├── python-dateutil >=2.8.2 
+│   │   │   └── six >=1.5 
+│   │   └── tzdata * 
+│   ├── pyarrow >=15.0.0 
+│   ├── pyyaml >=5.1 (circular dependency aborted here)
+│   ├── requests >=2.32.2 (circular dependency aborted here)
+│   ├── tqdm >=4.66.3 (circular dependency aborted here)
+│   └── xxhash * 
+├── diffusers *
+│   ├── filelock * 
+│   ├── httpx <1.0.0 
+│   │   ├── anyio * 
+│   │   │   ├── idna >=2.8 
+│   │   │   └── typing-extensions >=4.5 
+│   │   ├── certifi * 
+│   │   ├── httpcore ==1.* 
+│   │   │   ├── certifi * (circular dependency aborted here)
+│   │   │   └── h11 >=0.16 
+│   │   └── idna * (circular dependency aborted here)
+│   ├── huggingface-hub >=0.34.0,<2.0 
+│   │   ├── filelock * (circular dependency aborted here)
+│   │   ├── fsspec >=2023.5.0 
+│   │   │   └── aiohttp <4.0.0a0 || >4.0.0a0,<4.0.0a1 || >4.0.0a1 
+│   │   │       ├── aiohappyeyeballs >=2.5.0 
+│   │   │       ├── aiosignal >=1.4.0 
+│   │   │       │   ├── frozenlist >=1.1.0 
+│   │   │       │   └── typing-extensions >=4.2 (circular dependency aborted here)
+│   │   │       ├── attrs >=17.3.0 
+│   │   │       ├── frozenlist >=1.1.1 (circular dependency aborted here)
+│   │   │       ├── multidict >=4.5,<7.0 
+│   │   │       ├── propcache >=0.2.0 
+│   │   │       └── yarl >=1.17.0,<2.0 
+│   │   │           ├── idna >=2.0 (circular dependency aborted here)
+│   │   │           ├── multidict >=4.0 (circular dependency aborted here)
+│   │   │           └── propcache >=0.2.1 (circular dependency aborted here)
+│   │   ├── hf-xet >=1.1.3,<2.0.0 
+│   │   ├── packaging >=20.9 
+│   │   ├── pyyaml >=5.1 
+│   │   ├── requests * 
+│   │   │   ├── certifi >=2017.4.17 (circular dependency aborted here)
+│   │   │   ├── charset-normalizer >=2,<4 
+│   │   │   ├── idna >=2.5,<4 (circular dependency aborted here)
+│   │   │   └── urllib3 >=1.21.1,<3 
+│   │   ├── tqdm >=4.42.1 
+│   │   │   └── colorama * 
+│   │   └── typing-extensions >=3.7.4.3 (circular dependency aborted here)
+│   ├── importlib-metadata * 
+│   │   └── zipp >=3.20 
+│   ├── numpy * 
+│   ├── pillow * 
+│   ├── regex !=2019.12.17 
+│   ├── requests * (circular dependency aborted here)
+│   └── safetensors >=0.3.1 
+├── hf-transfer *
+├── huggingface-hub >=0.34.0
+│   ├── filelock * 
+│   ├── fsspec >=2023.5.0 
+│   │   └── aiohttp <4.0.0a0 || >4.0.0a0,<4.0.0a1 || >4.0.0a1 
+│   │       ├── aiohappyeyeballs >=2.5.0 
+│   │       ├── aiosignal >=1.4.0 
+│   │       │   ├── frozenlist >=1.1.0 
+│   │       │   └── typing-extensions >=4.2 
+│   │       ├── attrs >=17.3.0 
+│   │       ├── frozenlist >=1.1.1 (circular dependency aborted here)
+│   │       ├── multidict >=4.5,<7.0 
+│   │       ├── propcache >=0.2.0 
+│   │       └── yarl >=1.17.0,<2.0 
+│   │           ├── idna >=2.0 
+│   │           ├── multidict >=4.0 (circular dependency aborted here)
+│   │           └── propcache >=0.2.1 (circular dependency aborted here)
+│   ├── hf-xet >=1.1.3,<2.0.0 
+│   ├── packaging >=20.9 
+│   ├── pyyaml >=5.1 
+│   ├── requests * 
+│   │   ├── certifi >=2017.4.17 
+│   │   ├── charset-normalizer >=2,<4 
+│   │   ├── idna >=2.5,<4 (circular dependency aborted here)
+│   │   └── urllib3 >=1.21.1,<3 
+│   ├── tqdm >=4.42.1 
+│   │   └── colorama * 
+│   └── typing-extensions >=3.7.4.3 (circular dependency aborted here)
+├── nest-asyncio *
+├── numpy *
+├── packaging *
+├── peft >=0.18.0
+│   ├── accelerate >=0.21.0 
+│   │   ├── huggingface-hub >=0.21.0 
+│   │   │   ├── filelock * 
+│   │   │   ├── fsspec >=2023.5.0 
+│   │   │   │   └── aiohttp <4.0.0a0 || >4.0.0a0,<4.0.0a1 || >4.0.0a1 
+│   │   │   │       ├── aiohappyeyeballs >=2.5.0 
+│   │   │   │       ├── aiosignal >=1.4.0 
+│   │   │   │       │   ├── frozenlist >=1.1.0 
+│   │   │   │       │   └── typing-extensions >=4.2 
+│   │   │   │       ├── attrs >=17.3.0 
+│   │   │   │       ├── frozenlist >=1.1.1 (circular dependency aborted here)
+│   │   │   │       ├── multidict >=4.5,<7.0 
+│   │   │   │       ├── propcache >=0.2.0 
+│   │   │   │       └── yarl >=1.17.0,<2.0 
+│   │   │   │           ├── idna >=2.0 
+│   │   │   │           ├── multidict >=4.0 (circular dependency aborted here)
+│   │   │   │           └── propcache >=0.2.1 (circular dependency aborted here)
+│   │   │   ├── hf-xet >=1.1.3,<2.0.0 
+│   │   │   ├── packaging >=20.9 
+│   │   │   ├── pyyaml >=5.1 
+│   │   │   ├── requests * 
+│   │   │   │   ├── certifi >=2017.4.17 
+│   │   │   │   ├── charset-normalizer >=2,<4 
+│   │   │   │   ├── idna >=2.5,<4 (circular dependency aborted here)
+│   │   │   │   └── urllib3 >=1.21.1,<3 
+│   │   │   ├── tqdm >=4.42.1 
+│   │   │   │   └── colorama * 
+│   │   │   └── typing-extensions >=3.7.4.3 (circular dependency aborted here)
+│   │   ├── numpy >=1.17 
+│   │   ├── packaging >=20.0 (circular dependency aborted here)
+│   │   ├── psutil * 
+│   │   ├── pyyaml * (circular dependency aborted here)
+│   │   ├── safetensors >=0.4.3 
+│   │   └── torch >=2.0.0 
+│   │       ├── filelock * (circular dependency aborted here)
+│   │       ├── fsspec * (circular dependency aborted here)
+│   │       ├── jinja2 * 
+│   │       │   └── markupsafe >=2.0 
+│   │       ├── networkx * 
+│   │       ├── nvidia-cublas-cu12 12.1.3.1 
+│   │       ├── nvidia-cuda-cupti-cu12 12.1.105 
+│   │       ├── nvidia-cuda-nvrtc-cu12 12.1.105 
+│   │       ├── nvidia-cuda-runtime-cu12 12.1.105 
+│   │       ├── nvidia-cudnn-cu12 9.1.0.70 
+│   │       │   └── nvidia-cublas-cu12 * (circular dependency aborted here)
+│   │       ├── nvidia-cufft-cu12 11.0.2.54 
+│   │       ├── nvidia-curand-cu12 10.3.2.106 
+│   │       ├── nvidia-cusolver-cu12 11.4.5.107 
+│   │       │   ├── nvidia-cublas-cu12 * (circular dependency aborted here)
+│   │       │   ├── nvidia-cusparse-cu12 * 
+│   │       │   │   └── nvidia-nvjitlink-cu12 * 
+│   │       │   └── nvidia-nvjitlink-cu12 * (circular dependency aborted here)
+│   │       ├── nvidia-cusparse-cu12 12.1.0.106 (circular dependency aborted here)
+│   │       ├── nvidia-nccl-cu12 2.21.5 
+│   │       ├── nvidia-nvtx-cu12 12.1.105 
+│   │       ├── setuptools * 
+│   │       ├── sympy 1.13.1 
+│   │       │   └── mpmath >=1.1.0,<1.4 
+│   │       ├── triton 3.1.0 
+│   │       │   └── filelock * (circular dependency aborted here)
+│   │       └── typing-extensions >=4.8.0 (circular dependency aborted here)
+│   ├── huggingface-hub >=0.25.0 (circular dependency aborted here)
+│   ├── numpy >=1.17 (circular dependency aborted here)
+│   ├── packaging >=20.0 (circular dependency aborted here)
+│   ├── psutil * (circular dependency aborted here)
+│   ├── pyyaml * (circular dependency aborted here)
+│   ├── safetensors * (circular dependency aborted here)
+│   ├── torch >=1.13.0 (circular dependency aborted here)
+│   ├── tqdm * (circular dependency aborted here)
+│   └── transformers * 
+│       ├── filelock * (circular dependency aborted here)
+│       ├── huggingface-hub >=0.30.0,<1.0 (circular dependency aborted here)
+│       ├── numpy >=1.17 (circular dependency aborted here)
+│       ├── packaging >=20.0 (circular dependency aborted here)
+│       ├── pyyaml >=5.1 (circular dependency aborted here)
+│       ├── regex !=2019.12.17 
+│       ├── requests * (circular dependency aborted here)
+│       ├── safetensors >=0.4.3 (circular dependency aborted here)
+│       ├── tokenizers >=0.21,<0.22 
+│       │   └── huggingface-hub >=0.16.4,<1.0 (circular dependency aborted here)
+│       └── tqdm >=4.27 (circular dependency aborted here)
+├── protobuf *
+├── psutil *
+├── pydantic *
+│   ├── annotated-types >=0.6.0 
+│   ├── pydantic-core 2.41.5 
+│   │   └── typing-extensions >=4.14.1 
+│   ├── typing-extensions >=4.14.1 (circular dependency aborted here)
+│   └── typing-inspection >=0.4.2 
+│       └── typing-extensions >=4.12.0 (circular dependency aborted here)
+├── pyyaml *
+├── sentencepiece >=0.2.0
+├── torch >=2.4.0,<2.11.0
+│   ├── filelock * 
+│   ├── fsspec * 
+│   │   └── aiohttp <4.0.0a0 || >4.0.0a0,<4.0.0a1 || >4.0.0a1 
+│   │       ├── aiohappyeyeballs >=2.5.0 
+│   │       ├── aiosignal >=1.4.0 
+│   │       │   ├── frozenlist >=1.1.0 
+│   │       │   └── typing-extensions >=4.2 
+│   │       ├── attrs >=17.3.0 
+│   │       ├── frozenlist >=1.1.1 (circular dependency aborted here)
+│   │       ├── multidict >=4.5,<7.0 
+│   │       ├── propcache >=0.2.0 
+│   │       └── yarl >=1.17.0,<2.0 
+│   │           ├── idna >=2.0 
+│   │           ├── multidict >=4.0 (circular dependency aborted here)
+│   │           └── propcache >=0.2.1 (circular dependency aborted here)
+│   ├── jinja2 * 
+│   │   └── markupsafe >=2.0 
+│   ├── networkx * 
+│   ├── nvidia-cublas-cu12 12.1.3.1 
+│   ├── nvidia-cuda-cupti-cu12 12.1.105 
+│   ├── nvidia-cuda-nvrtc-cu12 12.1.105 
+│   ├── nvidia-cuda-runtime-cu12 12.1.105 
+│   ├── nvidia-cudnn-cu12 9.1.0.70 
+│   │   └── nvidia-cublas-cu12 * (circular dependency aborted here)
+│   ├── nvidia-cufft-cu12 11.0.2.54 
+│   ├── nvidia-curand-cu12 10.3.2.106 
+│   ├── nvidia-cusolver-cu12 11.4.5.107 
+│   │   ├── nvidia-cublas-cu12 * (circular dependency aborted here)
+│   │   ├── nvidia-cusparse-cu12 * 
+│   │   │   └── nvidia-nvjitlink-cu12 * 
+│   │   └── nvidia-nvjitlink-cu12 * (circular dependency aborted here)
+│   ├── nvidia-cusparse-cu12 12.1.0.106 (circular dependency aborted here)
+│   ├── nvidia-nccl-cu12 2.21.5 
+│   ├── nvidia-nvtx-cu12 12.1.105 
+│   ├── setuptools * 
+│   ├── sympy 1.13.1 
+│   │   └── mpmath >=1.1.0,<1.4 
+│   ├── triton 3.1.0 
+│   │   └── filelock * (circular dependency aborted here)
+│   └── typing-extensions >=4.8.0 (circular dependency aborted here)
+├── torchvision *
+│   ├── numpy * 
+│   ├── pillow >=5.3.0,<8.3.dev0 || >=8.4.dev0 
+│   └── torch 2.5.1 
+│       ├── filelock * 
+│       ├── fsspec * 
+│       │   └── aiohttp <4.0.0a0 || >4.0.0a0,<4.0.0a1 || >4.0.0a1 
+│       │       ├── aiohappyeyeballs >=2.5.0 
+│       │       ├── aiosignal >=1.4.0 
+│       │       │   ├── frozenlist >=1.1.0 
+│       │       │   └── typing-extensions >=4.2 
+│       │       ├── attrs >=17.3.0 
+│       │       ├── frozenlist >=1.1.1 (circular dependency aborted here)
+│       │       ├── multidict >=4.5,<7.0 
+│       │       ├── propcache >=0.2.0 
+│       │       └── yarl >=1.17.0,<2.0 
+│       │           ├── idna >=2.0 
+│       │           ├── multidict >=4.0 (circular dependency aborted here)
+│       │           └── propcache >=0.2.1 (circular dependency aborted here)
+│       ├── jinja2 * 
+│       │   └── markupsafe >=2.0 
+│       ├── networkx * 
+│       ├── nvidia-cublas-cu12 12.1.3.1 
+│       ├── nvidia-cuda-cupti-cu12 12.1.105 
+│       ├── nvidia-cuda-nvrtc-cu12 12.1.105 
+│       ├── nvidia-cuda-runtime-cu12 12.1.105 
+│       ├── nvidia-cudnn-cu12 9.1.0.70 
+│       │   └── nvidia-cublas-cu12 * (circular dependency aborted here)
+│       ├── nvidia-cufft-cu12 11.0.2.54 
+│       ├── nvidia-curand-cu12 10.3.2.106 
+│       ├── nvidia-cusolver-cu12 11.4.5.107 
+│       │   ├── nvidia-cublas-cu12 * (circular dependency aborted here)
+│       │   ├── nvidia-cusparse-cu12 * 
+│       │   │   └── nvidia-nvjitlink-cu12 * 
+│       │   └── nvidia-nvjitlink-cu12 * (circular dependency aborted here)
+│       ├── nvidia-cusparse-cu12 12.1.0.106 (circular dependency aborted here)
+│       ├── nvidia-nccl-cu12 2.21.5 
+│       ├── nvidia-nvtx-cu12 12.1.105 
+│       ├── setuptools * 
+│       ├── sympy 1.13.1 
+│       │   └── mpmath >=1.1.0,<1.4 
+│       ├── triton 3.1.0 
+│       │   └── filelock * (circular dependency aborted here)
+│       └── typing-extensions >=4.8.0 (circular dependency aborted here)
+├── tqdm *
+│   └── colorama * 
+├── transformers >=4.51.3,<4.52.0 || >4.52.0,<4.52.1 || >4.52.1,<4.52.2 || >4.52.2,<4.52.3 || >4.52.3,<4.53.0 || >4.53.0,<4.54.0 || >4.54.0,<4.55.0 || >4.55.0,<4.55.1 || >4.55.1,<4.57.0 || >4.57.0,<4.57.4 || >4.57.4,<4.57.5 || >4.57.5,<5.0.0 || >5.0.0,<5.1.0 || >5.1.0,<=5.5.0
+│   ├── filelock * 
+│   ├── huggingface-hub >=0.30.0,<1.0 
+│   │   ├── filelock * (circular dependency aborted here)
+│   │   ├── fsspec >=2023.5.0 
+│   │   │   └── aiohttp <4.0.0a0 || >4.0.0a0,<4.0.0a1 || >4.0.0a1 
+│   │   │       ├── aiohappyeyeballs >=2.5.0 
+│   │   │       ├── aiosignal >=1.4.0 
+│   │   │       │   ├── frozenlist >=1.1.0 
+│   │   │       │   └── typing-extensions >=4.2 
+│   │   │       ├── attrs >=17.3.0 
+│   │   │       ├── frozenlist >=1.1.1 (circular dependency aborted here)
+│   │   │       ├── multidict >=4.5,<7.0 
+│   │   │       ├── propcache >=0.2.0 
+│   │   │       └── yarl >=1.17.0,<2.0 
+│   │   │           ├── idna >=2.0 
+│   │   │           ├── multidict >=4.0 (circular dependency aborted here)
+│   │   │           └── propcache >=0.2.1 (circular dependency aborted here)
+│   │   ├── hf-xet >=1.1.3,<2.0.0 
+│   │   ├── packaging >=20.9 
+│   │   ├── pyyaml >=5.1 
+│   │   ├── requests * 
+│   │   │   ├── certifi >=2017.4.17 
+│   │   │   ├── charset-normalizer >=2,<4 
+│   │   │   ├── idna >=2.5,<4 (circular dependency aborted here)
+│   │   │   └── urllib3 >=1.21.1,<3 
+│   │   ├── tqdm >=4.42.1 
+│   │   │   └── colorama * 
+│   │   └── typing-extensions >=3.7.4.3 (circular dependency aborted here)
+│   ├── numpy >=1.17 
+│   ├── packaging >=20.0 (circular dependency aborted here)
+│   ├── pyyaml >=5.1 (circular dependency aborted here)
+│   ├── regex !=2019.12.17 
+│   ├── requests * (circular dependency aborted here)
+│   ├── safetensors >=0.4.3 
+│   ├── tokenizers >=0.21,<0.22 
+│   │   └── huggingface-hub >=0.16.4,<1.0 (circular dependency aborted here)
+│   └── tqdm >=4.27 (circular dependency aborted here)
+├── triton >=3.0.0
+│   └── filelock * 
+├── triton-windows *
+├── trl >=0.18.2,<0.19.0 || >0.19.0,<=0.24.0
+│   ├── accelerate >=1.4.0 
+│   │   ├── huggingface-hub >=0.21.0 
+│   │   │   ├── filelock * 
+│   │   │   ├── fsspec >=2023.5.0 
+│   │   │   │   └── aiohttp <4.0.0a0 || >4.0.0a0,<4.0.0a1 || >4.0.0a1 
+│   │   │   │       ├── aiohappyeyeballs >=2.5.0 
+│   │   │   │       ├── aiosignal >=1.4.0 
+│   │   │   │       │   ├── frozenlist >=1.1.0 
+│   │   │   │       │   └── typing-extensions >=4.2 
+│   │   │   │       ├── attrs >=17.3.0 
+│   │   │   │       ├── frozenlist >=1.1.1 (circular dependency aborted here)
+│   │   │   │       ├── multidict >=4.5,<7.0 
+│   │   │   │       ├── propcache >=0.2.0 
+│   │   │   │       └── yarl >=1.17.0,<2.0 
+│   │   │   │           ├── idna >=2.0 
+│   │   │   │           ├── multidict >=4.0 (circular dependency aborted here)
+│   │   │   │           └── propcache >=0.2.1 (circular dependency aborted here)
+│   │   │   ├── hf-xet >=1.1.3,<2.0.0 
+│   │   │   ├── packaging >=20.9 
+│   │   │   ├── pyyaml >=5.1 
+│   │   │   ├── requests * 
+│   │   │   │   ├── certifi >=2017.4.17 
+│   │   │   │   ├── charset-normalizer >=2,<4 
+│   │   │   │   ├── idna >=2.5,<4 (circular dependency aborted here)
+│   │   │   │   └── urllib3 >=1.21.1,<3 
+│   │   │   ├── tqdm >=4.42.1 
+│   │   │   │   └── colorama * 
+│   │   │   └── typing-extensions >=3.7.4.3 (circular dependency aborted here)
+│   │   ├── numpy >=1.17 
+│   │   ├── packaging >=20.0 (circular dependency aborted here)
+│   │   ├── psutil * 
+│   │   ├── pyyaml * (circular dependency aborted here)
+│   │   ├── safetensors >=0.4.3 
+│   │   └── torch >=2.0.0 
+│   │       ├── filelock * (circular dependency aborted here)
+│   │       ├── fsspec * (circular dependency aborted here)
+│   │       ├── jinja2 * 
+│   │       │   └── markupsafe >=2.0 
+│   │       ├── networkx * 
+│   │       ├── nvidia-cublas-cu12 12.1.3.1 
+│   │       ├── nvidia-cuda-cupti-cu12 12.1.105 
+│   │       ├── nvidia-cuda-nvrtc-cu12 12.1.105 
+│   │       ├── nvidia-cuda-runtime-cu12 12.1.105 
+│   │       ├── nvidia-cudnn-cu12 9.1.0.70 
+│   │       │   └── nvidia-cublas-cu12 * (circular dependency aborted here)
+│   │       ├── nvidia-cufft-cu12 11.0.2.54 
+│   │       ├── nvidia-curand-cu12 10.3.2.106 
+│   │       ├── nvidia-cusolver-cu12 11.4.5.107 
+│   │       │   ├── nvidia-cublas-cu12 * (circular dependency aborted here)
+│   │       │   ├── nvidia-cusparse-cu12 * 
+│   │       │   │   └── nvidia-nvjitlink-cu12 * 
+│   │       │   └── nvidia-nvjitlink-cu12 * (circular dependency aborted here)
+│   │       ├── nvidia-cusparse-cu12 12.1.0.106 (circular dependency aborted here)
+│   │       ├── nvidia-nccl-cu12 2.21.5 
+│   │       ├── nvidia-nvtx-cu12 12.1.105 
+│   │       ├── setuptools * 
+│   │       ├── sympy 1.13.1 
+│   │       │   └── mpmath >=1.1.0,<1.4 
+│   │       ├── triton 3.1.0 
+│   │       │   └── filelock * (circular dependency aborted here)
+│   │       └── typing-extensions >=4.8.0 (circular dependency aborted here)
+│   ├── datasets >=3.0.0 
+│   │   ├── dill >=0.3.0,<0.3.9 
+│   │   ├── filelock * (circular dependency aborted here)
+│   │   ├── fsspec >=2023.1.0,<=2025.3.0 (circular dependency aborted here)
+│   │   ├── huggingface-hub >=0.24.0 (circular dependency aborted here)
+│   │   ├── multiprocess <0.70.17 
+│   │   │   └── dill >=0.3.8 (circular dependency aborted here)
+│   │   ├── numpy >=1.17 (circular dependency aborted here)
+│   │   ├── packaging * (circular dependency aborted here)
+│   │   ├── pandas * 
+│   │   │   ├── numpy >=1.26.0 (circular dependency aborted here)
+│   │   │   ├── python-dateutil >=2.8.2 
+│   │   │   │   └── six >=1.5 
+│   │   │   └── tzdata * 
+│   │   ├── pyarrow >=15.0.0 
+│   │   ├── pyyaml >=5.1 (circular dependency aborted here)
+│   │   ├── requests >=2.32.2 (circular dependency aborted here)
+│   │   ├── tqdm >=4.66.3 (circular dependency aborted here)
+│   │   └── xxhash * 
+│   └── transformers >=4.51.0 
+│       ├── filelock * (circular dependency aborted here)
+│       ├── huggingface-hub >=0.30.0,<1.0 (circular dependency aborted here)
+│       ├── numpy >=1.17 (circular dependency aborted here)
+│       ├── packaging >=20.0 (circular dependency aborted here)
+│       ├── pyyaml >=5.1 (circular dependency aborted here)
+│       ├── regex !=2019.12.17 
+│       ├── requests * (circular dependency aborted here)
+│       ├── safetensors >=0.4.3 (circular dependency aborted here)
+│       ├── tokenizers >=0.21,<0.22 
+│       │   └── huggingface-hub >=0.16.4,<1.0 (circular dependency aborted here)
+│       └── tqdm >=4.27 (circular dependency aborted here)
+├── typer *
+│   ├── annotated-doc >=0.0.2 
+│   ├── click >=8.2.1 
+│   │   └── colorama * 
+│   ├── rich >=12.3.0 
+│   │   ├── markdown-it-py >=2.2.0 
+│   │   │   └── mdurl >=0.1,<1.0 
+│   │   └── pygments >=2.13.0,<3.0.0 
+│   └── shellingham >=1.3.0 
+├── tyro *
+│   ├── docstring-parser >=0.15 
+│   ├── typeguard >=4.0.0 
+│   │   └── typing-extensions >=4.14.0 
+│   └── typing-extensions >=4.13.0 (circular dependency aborted here)
+├── unsloth-zoo >=2026.4.8
+│   ├── accelerate >=0.34.1 
+│   │   ├── huggingface-hub >=0.21.0 
+│   │   │   ├── filelock * 
+│   │   │   ├── fsspec >=2023.5.0 
+│   │   │   │   └── aiohttp <4.0.0a0 || >4.0.0a0,<4.0.0a1 || >4.0.0a1 
+│   │   │   │       ├── aiohappyeyeballs >=2.5.0 
+│   │   │   │       ├── aiosignal >=1.4.0 
+│   │   │   │       │   ├── frozenlist >=1.1.0 
+│   │   │   │       │   └── typing-extensions >=4.2 
+│   │   │   │       ├── attrs >=17.3.0 
+│   │   │   │       ├── frozenlist >=1.1.1 (circular dependency aborted here)
+│   │   │   │       ├── multidict >=4.5,<7.0 
+│   │   │   │       ├── propcache >=0.2.0 
+│   │   │   │       └── yarl >=1.17.0,<2.0 
+│   │   │   │           ├── idna >=2.0 
+│   │   │   │           ├── multidict >=4.0 (circular dependency aborted here)
+│   │   │   │           └── propcache >=0.2.1 (circular dependency aborted here)
+│   │   │   ├── hf-xet >=1.1.3,<2.0.0 
+│   │   │   ├── packaging >=20.9 
+│   │   │   ├── pyyaml >=5.1 
+│   │   │   ├── requests * 
+│   │   │   │   ├── certifi >=2017.4.17 
+│   │   │   │   ├── charset-normalizer >=2,<4 
+│   │   │   │   ├── idna >=2.5,<4 (circular dependency aborted here)
+│   │   │   │   └── urllib3 >=1.21.1,<3 
+│   │   │   ├── tqdm >=4.42.1 
+│   │   │   │   └── colorama * 
+│   │   │   └── typing-extensions >=3.7.4.3 (circular dependency aborted here)
+│   │   ├── numpy >=1.17 
+│   │   ├── packaging >=20.0 (circular dependency aborted here)
+│   │   ├── psutil * 
+│   │   ├── pyyaml * (circular dependency aborted here)
+│   │   ├── safetensors >=0.4.3 
+│   │   └── torch >=2.0.0 
+│   │       ├── filelock * (circular dependency aborted here)
+│   │       ├── fsspec * (circular dependency aborted here)
+│   │       ├── jinja2 * 
+│   │       │   └── markupsafe >=2.0 
+│   │       ├── networkx * 
+│   │       ├── nvidia-cublas-cu12 12.1.3.1 
+│   │       ├── nvidia-cuda-cupti-cu12 12.1.105 
+│   │       ├── nvidia-cuda-nvrtc-cu12 12.1.105 
+│   │       ├── nvidia-cuda-runtime-cu12 12.1.105 
+│   │       ├── nvidia-cudnn-cu12 9.1.0.70 
+│   │       │   └── nvidia-cublas-cu12 * (circular dependency aborted here)
+│   │       ├── nvidia-cufft-cu12 11.0.2.54 
+│   │       ├── nvidia-curand-cu12 10.3.2.106 
+│   │       ├── nvidia-cusolver-cu12 11.4.5.107 
+│   │       │   ├── nvidia-cublas-cu12 * (circular dependency aborted here)
+│   │       │   ├── nvidia-cusparse-cu12 * 
+│   │       │   │   └── nvidia-nvjitlink-cu12 * 
+│   │       │   └── nvidia-nvjitlink-cu12 * (circular dependency aborted here)
+│   │       ├── nvidia-cusparse-cu12 12.1.0.106 (circular dependency aborted here)
+│   │       ├── nvidia-nccl-cu12 2.21.5 
+│   │       ├── nvidia-nvtx-cu12 12.1.105 
+│   │       ├── setuptools * 
+│   │       ├── sympy 1.13.1 
+│   │       │   └── mpmath >=1.1.0,<1.4 
+│   │       ├── triton 3.1.0 
+│   │       │   └── filelock * (circular dependency aborted here)
+│   │       └── typing-extensions >=4.8.0 (circular dependency aborted here)
+│   ├── cut-cross-entropy * 
+│   │   ├── torch * (circular dependency aborted here)
+│   │   └── triton * (circular dependency aborted here)
+│   ├── datasets >=3.4.1,<4.0.dev0 || >4.1.0,<4.4.0 
+│   │   ├── dill >=0.3.0,<0.3.9 
+│   │   ├── filelock * (circular dependency aborted here)
+│   │   ├── fsspec >=2023.1.0,<=2025.3.0 (circular dependency aborted here)
+│   │   ├── huggingface-hub >=0.24.0 (circular dependency aborted here)
+│   │   ├── multiprocess <0.70.17 
+│   │   │   └── dill >=0.3.8 (circular dependency aborted here)
+│   │   ├── numpy >=1.17 (circular dependency aborted here)
+│   │   ├── packaging * (circular dependency aborted here)
+│   │   ├── pandas * 
+│   │   │   ├── numpy >=1.26.0 (circular dependency aborted here)
+│   │   │   ├── python-dateutil >=2.8.2 
+│   │   │   │   └── six >=1.5 
+│   │   │   └── tzdata * 
+│   │   ├── pyarrow >=15.0.0 
+│   │   ├── pyyaml >=5.1 (circular dependency aborted here)
+│   │   ├── requests >=2.32.2 (circular dependency aborted here)
+│   │   ├── tqdm >=4.66.3 (circular dependency aborted here)
+│   │   └── xxhash * 
+│   ├── filelock * (circular dependency aborted here)
+│   ├── hf-transfer * 
+│   ├── huggingface-hub >=0.34.0 (circular dependency aborted here)
+│   ├── msgspec * 
+│   ├── numpy * (circular dependency aborted here)
+│   ├── packaging >=24.1 (circular dependency aborted here)
+│   ├── peft >=0.18.0 
+│   │   ├── accelerate >=0.21.0 (circular dependency aborted here)
+│   │   ├── huggingface-hub >=0.25.0 (circular dependency aborted here)
+│   │   ├── numpy >=1.17 (circular dependency aborted here)
+│   │   ├── packaging >=20.0 (circular dependency aborted here)
+│   │   ├── psutil * (circular dependency aborted here)
+│   │   ├── pyyaml * (circular dependency aborted here)
+│   │   ├── safetensors * (circular dependency aborted here)
+│   │   ├── torch >=1.13.0 (circular dependency aborted here)
+│   │   ├── tqdm * (circular dependency aborted here)
+│   │   └── transformers * 
+│   │       ├── filelock * (circular dependency aborted here)
+│   │       ├── huggingface-hub >=0.30.0,<1.0 (circular dependency aborted here)
+│   │       ├── numpy >=1.17 (circular dependency aborted here)
+│   │       ├── packaging >=20.0 (circular dependency aborted here)
+│   │       ├── pyyaml >=5.1 (circular dependency aborted here)
+│   │       ├── regex !=2019.12.17 
+│   │       ├── requests * (circular dependency aborted here)
+│   │       ├── safetensors >=0.4.3 (circular dependency aborted here)
+│   │       ├── tokenizers >=0.21,<0.22 
+│   │       │   └── huggingface-hub >=0.16.4,<1.0 (circular dependency aborted here)
+│   │       └── tqdm >=4.27 (circular dependency aborted here)
+│   ├── pillow * 
+│   ├── protobuf * 
+│   ├── psutil * (circular dependency aborted here)
+│   ├── regex * (circular dependency aborted here)
+│   ├── sentencepiece >=0.2.0 
+│   ├── torch >=2.4.0,<2.11.0 (circular dependency aborted here)
+│   ├── torchao >=0.13.0 
+│   ├── tqdm * (circular dependency aborted here)
+│   ├── transformers >=4.51.3,<4.52.0 || >4.52.0,<4.52.1 || >4.52.1,<4.52.2 || >4.52.2,<4.52.3 || >4.52.3,<4.53.0 || >4.53.0,<4.54.0 || >4.54.0,<4.55.0 || >4.55.0,<4.55.1 || >4.55.1,<4.57.4 || >4.57.4,<4.57.5 || >4.57.5,<5.0.0 || >5.0.0,<5.1.0 || >5.1.0,<=5.5.0 (circular dependency aborted here)
+│   ├── triton >=3.0.0 (circular dependency aborted here)
+│   ├── trl >=0.18.2,<0.19.0 || >0.19.0,<=0.24.0 
+│   │   ├── accelerate >=1.4.0 (circular dependency aborted here)
+│   │   ├── datasets >=3.0.0 (circular dependency aborted here)
+│   │   └── transformers >=4.51.0 (circular dependency aborted here)
+│   ├── typing-extensions * (circular dependency aborted here)
+│   ├── tyro * 
+│   │   ├── docstring-parser >=0.15 
+│   │   ├── typeguard >=4.0.0 
+│   │   │   └── typing-extensions >=4.14.0 (circular dependency aborted here)
+│   │   └── typing-extensions >=4.13.0 (circular dependency aborted here)
+│   └── wheel >=0.42.0 
+│       └── packaging >=24.0 (circular dependency aborted here)
+├── wheel >=0.42.0
+│   └── packaging >=24.0 
+└── xformers >=0.0.27.post2
+    ├── numpy * 
+    └── torch 2.5.1 
+        ├── filelock * 
+        ├── fsspec * 
+        │   └── aiohttp <4.0.0a0 || >4.0.0a0,<4.0.0a1 || >4.0.0a1 
+        │       ├── aiohappyeyeballs >=2.5.0 
+        │       ├── aiosignal >=1.4.0 
+        │       │   ├── frozenlist >=1.1.0 
+        │       │   └── typing-extensions >=4.2 
+        │       ├── attrs >=17.3.0 
+        │       ├── frozenlist >=1.1.1 (circular dependency aborted here)
+        │       ├── multidict >=4.5,<7.0 
+        │       ├── propcache >=0.2.0 
+        │       └── yarl >=1.17.0,<2.0 
+        │           ├── idna >=2.0 
+        │           ├── multidict >=4.0 (circular dependency aborted here)
+        │           └── propcache >=0.2.1 (circular dependency aborted here)
+        ├── jinja2 * 
+        │   └── markupsafe >=2.0 
+        ├── networkx * 
+        ├── nvidia-cublas-cu12 12.1.3.1 
+        ├── nvidia-cuda-cupti-cu12 12.1.105 
+        ├── nvidia-cuda-nvrtc-cu12 12.1.105 
+        ├── nvidia-cuda-runtime-cu12 12.1.105 
+        ├── nvidia-cudnn-cu12 9.1.0.70 
+        │   └── nvidia-cublas-cu12 * (circular dependency aborted here)
+        ├── nvidia-cufft-cu12 11.0.2.54 
+        ├── nvidia-curand-cu12 10.3.2.106 
+        ├── nvidia-cusolver-cu12 11.4.5.107 
+        │   ├── nvidia-cublas-cu12 * (circular dependency aborted here)
+        │   ├── nvidia-cusparse-cu12 * 
+        │   │   └── nvidia-nvjitlink-cu12 * 
+        │   └── nvidia-nvjitlink-cu12 * (circular dependency aborted here)
+        ├── nvidia-cusparse-cu12 12.1.0.106 (circular dependency aborted here)
+        ├── nvidia-nccl-cu12 2.21.5 
+        ├── nvidia-nvtx-cu12 12.1.105 
+        ├── setuptools * 
+        ├── sympy 1.13.1 
+        │   └── mpmath >=1.1.0,<1.4 
+        ├── triton 3.1.0 
+        │   └── filelock * (circular dependency aborted here)
+        └── typing-extensions >=4.8.0 (circular dependency aborted here)
+vllm 0.7.2 A high-throughput and memory-efficient inference and serving engine for LLMs
+├── aiohttp *
+│   ├── aiohappyeyeballs >=2.5.0 
+│   ├── aiosignal >=1.4.0 
+│   │   ├── frozenlist >=1.1.0 
+│   │   └── typing-extensions >=4.2 
+│   ├── attrs >=17.3.0 
+│   ├── frozenlist >=1.1.1 (circular dependency aborted here)
+│   ├── multidict >=4.5,<7.0 
+│   ├── propcache >=0.2.0 
+│   └── yarl >=1.17.0,<2.0 
+│       ├── idna >=2.0 
+│       ├── multidict >=4.0 (circular dependency aborted here)
+│       └── propcache >=0.2.1 (circular dependency aborted here)
+├── blake3 *
+│   └── typing-extensions >=4.6.0 
+├── cloudpickle *
+├── compressed-tensors 0.9.1
+│   ├── pydantic >=2.0 
+│   │   ├── annotated-types >=0.6.0 
+│   │   ├── pydantic-core 2.41.5 
+│   │   │   └── typing-extensions >=4.14.1 
+│   │   ├── typing-extensions >=4.14.1 (circular dependency aborted here)
+│   │   └── typing-inspection >=0.4.2 
+│   │       └── typing-extensions >=4.12.0 (circular dependency aborted here)
+│   ├── torch >=1.7.0 
+│   │   ├── filelock * 
+│   │   ├── fsspec * 
+│   │   │   └── aiohttp <4.0.0a0 || >4.0.0a0,<4.0.0a1 || >4.0.0a1 
+│   │   │       ├── aiohappyeyeballs >=2.5.0 
+│   │   │       ├── aiosignal >=1.4.0 
+│   │   │       │   ├── frozenlist >=1.1.0 
+│   │   │       │   └── typing-extensions >=4.2 (circular dependency aborted here)
+│   │   │       ├── attrs >=17.3.0 
+│   │   │       ├── frozenlist >=1.1.1 (circular dependency aborted here)
+│   │   │       ├── multidict >=4.5,<7.0 
+│   │   │       ├── propcache >=0.2.0 
+│   │   │       └── yarl >=1.17.0,<2.0 
+│   │   │           ├── idna >=2.0 
+│   │   │           ├── multidict >=4.0 (circular dependency aborted here)
+│   │   │           └── propcache >=0.2.1 (circular dependency aborted here)
+│   │   ├── jinja2 * 
+│   │   │   └── markupsafe >=2.0 
+│   │   ├── networkx * 
+│   │   ├── nvidia-cublas-cu12 12.1.3.1 
+│   │   ├── nvidia-cuda-cupti-cu12 12.1.105 
+│   │   ├── nvidia-cuda-nvrtc-cu12 12.1.105 
+│   │   ├── nvidia-cuda-runtime-cu12 12.1.105 
+│   │   ├── nvidia-cudnn-cu12 9.1.0.70 
+│   │   │   └── nvidia-cublas-cu12 * (circular dependency aborted here)
+│   │   ├── nvidia-cufft-cu12 11.0.2.54 
+│   │   ├── nvidia-curand-cu12 10.3.2.106 
+│   │   ├── nvidia-cusolver-cu12 11.4.5.107 
+│   │   │   ├── nvidia-cublas-cu12 * (circular dependency aborted here)
+│   │   │   ├── nvidia-cusparse-cu12 * 
+│   │   │   │   └── nvidia-nvjitlink-cu12 * 
+│   │   │   └── nvidia-nvjitlink-cu12 * (circular dependency aborted here)
+│   │   ├── nvidia-cusparse-cu12 12.1.0.106 (circular dependency aborted here)
+│   │   ├── nvidia-nccl-cu12 2.21.5 
+│   │   ├── nvidia-nvtx-cu12 12.1.105 
+│   │   ├── setuptools * 
+│   │   ├── sympy 1.13.1 
+│   │   │   └── mpmath >=1.1.0,<1.4 
+│   │   ├── triton 3.1.0 
+│   │   │   └── filelock * (circular dependency aborted here)
+│   │   └── typing-extensions >=4.8.0 (circular dependency aborted here)
+│   └── transformers * 
+│       ├── filelock * (circular dependency aborted here)
+│       ├── huggingface-hub >=0.30.0,<1.0 
+│       │   ├── filelock * (circular dependency aborted here)
+│       │   ├── fsspec >=2023.5.0 (circular dependency aborted here)
+│       │   ├── hf-xet >=1.1.3,<2.0.0 
+│       │   ├── packaging >=20.9 
+│       │   ├── pyyaml >=5.1 
+│       │   ├── requests * 
+│       │   │   ├── certifi >=2017.4.17 
+│       │   │   ├── charset-normalizer >=2,<4 
+│       │   │   ├── idna >=2.5,<4 (circular dependency aborted here)
+│       │   │   └── urllib3 >=1.21.1,<3 
+│       │   ├── tqdm >=4.42.1 
+│       │   │   └── colorama * 
+│       │   └── typing-extensions >=3.7.4.3 (circular dependency aborted here)
+│       ├── numpy >=1.17 
+│       ├── packaging >=20.0 (circular dependency aborted here)
+│       ├── pyyaml >=5.1 (circular dependency aborted here)
+│       ├── regex !=2019.12.17 
+│       ├── requests * (circular dependency aborted here)
+│       ├── safetensors >=0.4.3 
+│       ├── tokenizers >=0.21,<0.22 
+│       │   └── huggingface-hub >=0.16.4,<1.0 (circular dependency aborted here)
+│       └── tqdm >=4.27 (circular dependency aborted here)
+├── depyf 0.18.0
+│   ├── astor * 
+│   └── dill * 
+├── einops *
+├── fastapi >=0.107.0,<0.113.dev0 || >0.114.0
+│   ├── annotated-doc >=0.0.2 
+│   ├── pydantic >=2.9.0 
+│   │   ├── annotated-types >=0.6.0 
+│   │   ├── pydantic-core 2.41.5 
+│   │   │   └── typing-extensions >=4.14.1 
+│   │   ├── typing-extensions >=4.14.1 (circular dependency aborted here)
+│   │   └── typing-inspection >=0.4.2 
+│   │       └── typing-extensions >=4.12.0 (circular dependency aborted here)
+│   ├── starlette >=0.46.0 
+│   │   ├── anyio >=3.6.2,<5 
+│   │   │   ├── idna >=2.8 
+│   │   │   └── typing-extensions >=4.5 (circular dependency aborted here)
+│   │   └── typing-extensions >=4.10.0 (circular dependency aborted here)
+│   ├── typing-extensions >=4.8.0 (circular dependency aborted here)
+│   └── typing-inspection >=0.4.2 (circular dependency aborted here)
+├── filelock >=3.16.1
+├── gguf 0.10.0
+│   ├── numpy >=1.17 
+│   ├── pyyaml >=5.1 
+│   └── tqdm >=4.27 
+│       └── colorama * 
+├── importlib-metadata *
+│   └── zipp >=3.20 
+├── lark 1.2.2
+├── lm-format-enforcer >=0.10.9,<0.11
+│   ├── interegular >=0.3.2 
+│   ├── packaging * 
+│   ├── pydantic >=1.10.8 
+│   │   ├── annotated-types >=0.6.0 
+│   │   ├── pydantic-core 2.41.5 
+│   │   │   └── typing-extensions >=4.14.1 
+│   │   ├── typing-extensions >=4.14.1 (circular dependency aborted here)
+│   │   └── typing-inspection >=0.4.2 
+│   │       └── typing-extensions >=4.12.0 (circular dependency aborted here)
+│   └── pyyaml * 
+├── mistral-common >=1.5.0
+│   ├── jsonschema >=4.21.1 
+│   │   ├── attrs >=22.2.0 
+│   │   ├── jsonschema-specifications >=2023.03.6 
+│   │   │   └── referencing >=0.31.0 
+│   │   │       ├── attrs >=22.2.0 (circular dependency aborted here)
+│   │   │       ├── rpds-py >=0.7.0 
+│   │   │       └── typing-extensions >=4.4.0 
+│   │   ├── referencing >=0.28.4 (circular dependency aborted here)
+│   │   └── rpds-py >=0.25.0 (circular dependency aborted here)
+│   ├── numpy >=1.25,<2.4 
+│   ├── opencv-python-headless >=4.0.0 
+│   │   ├── numpy >=1.23.5 (circular dependency aborted here)
+│   │   └── numpy >=1.26.0 (circular dependency aborted here)
+│   ├── pillow >=10.3.0 
+│   ├── pydantic >=2.7,<3.0 
+│   │   ├── annotated-types >=0.6.0 
+│   │   ├── pydantic-core 2.41.5 
+│   │   │   └── typing-extensions >=4.14.1 (circular dependency aborted here)
+│   │   ├── typing-extensions >=4.14.1 (circular dependency aborted here)
+│   │   └── typing-inspection >=0.4.2 
+│   │       └── typing-extensions >=4.12.0 (circular dependency aborted here)
+│   ├── pydantic-extra-types >=2.10.5 
+│   │   ├── pycountry >=23 
+│   │   ├── pydantic >=2.5.2 (circular dependency aborted here)
+│   │   └── typing-extensions * (circular dependency aborted here)
+│   ├── requests >=2.0.0 
+│   │   ├── certifi >=2017.4.17 
+│   │   ├── charset-normalizer >=2,<4 
+│   │   ├── idna >=2.5,<4 
+│   │   └── urllib3 >=1.21.1,<3 
+│   ├── tiktoken >=0.7.0 
+│   │   ├── regex >=2022.1.18 
+│   │   └── requests >=2.26.0 (circular dependency aborted here)
+│   └── typing-extensions >=4.11.0 (circular dependency aborted here)
+├── msgspec *
+├── numpy <2.0.0
+├── nvidia-ml-py >=12.560.30
+├── openai >=1.52.0
+│   ├── anyio >=3.5.0,<5 
+│   │   ├── idna >=2.8 
+│   │   └── typing-extensions >=4.5 
+│   ├── distro >=1.7.0,<2 
+│   ├── httpx >=0.23.0,<1 
+│   │   ├── anyio * (circular dependency aborted here)
+│   │   ├── certifi * 
+│   │   ├── httpcore ==1.* 
+│   │   │   ├── certifi * (circular dependency aborted here)
+│   │   │   └── h11 >=0.16 
+│   │   └── idna * (circular dependency aborted here)
+│   ├── jiter >=0.10.0,<1 
+│   ├── pydantic >=1.9.0,<3 
+│   │   ├── annotated-types >=0.6.0 
+│   │   ├── pydantic-core 2.41.5 
+│   │   │   └── typing-extensions >=4.14.1 (circular dependency aborted here)
+│   │   ├── typing-extensions >=4.14.1 (circular dependency aborted here)
+│   │   └── typing-inspection >=0.4.2 
+│   │       └── typing-extensions >=4.12.0 (circular dependency aborted here)
+│   ├── sniffio * 
+│   ├── tqdm >4 
+│   │   └── colorama * 
+│   └── typing-extensions >=4.14,<5 (circular dependency aborted here)
+├── outlines 0.1.11
+│   ├── airportsdata * 
+│   ├── cloudpickle * 
+│   ├── diskcache * 
+│   ├── interegular * 
+│   ├── jinja2 * 
+│   │   └── markupsafe >=2.0 
+│   ├── jsonschema * 
+│   │   ├── attrs >=22.2.0 
+│   │   ├── jsonschema-specifications >=2023.03.6 
+│   │   │   └── referencing >=0.31.0 
+│   │   │       ├── attrs >=22.2.0 (circular dependency aborted here)
+│   │   │       ├── rpds-py >=0.7.0 
+│   │   │       └── typing-extensions >=4.4.0 
+│   │   ├── referencing >=0.28.4 (circular dependency aborted here)
+│   │   └── rpds-py >=0.25.0 (circular dependency aborted here)
+│   ├── lark * 
+│   ├── nest-asyncio * 
+│   ├── numpy * 
+│   ├── outlines-core 0.1.26 
+│   │   ├── interegular * (circular dependency aborted here)
+│   │   └── jsonschema * (circular dependency aborted here)
+│   ├── pycountry * 
+│   ├── pydantic >=2.0 
+│   │   ├── annotated-types >=0.6.0 
+│   │   ├── pydantic-core 2.41.5 
+│   │   │   └── typing-extensions >=4.14.1 (circular dependency aborted here)
+│   │   ├── typing-extensions >=4.14.1 (circular dependency aborted here)
+│   │   └── typing-inspection >=0.4.2 
+│   │       └── typing-extensions >=4.12.0 (circular dependency aborted here)
+│   ├── referencing * (circular dependency aborted here)
+│   ├── requests * 
+│   │   ├── certifi >=2017.4.17 
+│   │   ├── charset-normalizer >=2,<4 
+│   │   ├── idna >=2.5,<4 
+│   │   └── urllib3 >=1.21.1,<3 
+│   ├── torch * 
+│   │   ├── filelock * 
+│   │   ├── fsspec * 
+│   │   │   └── aiohttp <4.0.0a0 || >4.0.0a0,<4.0.0a1 || >4.0.0a1 
+│   │   │       ├── aiohappyeyeballs >=2.5.0 
+│   │   │       ├── aiosignal >=1.4.0 
+│   │   │       │   ├── frozenlist >=1.1.0 
+│   │   │       │   └── typing-extensions >=4.2 (circular dependency aborted here)
+│   │   │       ├── attrs >=17.3.0 (circular dependency aborted here)
+│   │   │       ├── frozenlist >=1.1.1 (circular dependency aborted here)
+│   │   │       ├── multidict >=4.5,<7.0 
+│   │   │       ├── propcache >=0.2.0 
+│   │   │       └── yarl >=1.17.0,<2.0 
+│   │   │           ├── idna >=2.0 (circular dependency aborted here)
+│   │   │           ├── multidict >=4.0 (circular dependency aborted here)
+│   │   │           └── propcache >=0.2.1 (circular dependency aborted here)
+│   │   ├── jinja2 * (circular dependency aborted here)
+│   │   ├── networkx * 
+│   │   ├── nvidia-cublas-cu12 12.1.3.1 
+│   │   ├── nvidia-cuda-cupti-cu12 12.1.105 
+│   │   ├── nvidia-cuda-nvrtc-cu12 12.1.105 
+│   │   ├── nvidia-cuda-runtime-cu12 12.1.105 
+│   │   ├── nvidia-cudnn-cu12 9.1.0.70 
+│   │   │   └── nvidia-cublas-cu12 * (circular dependency aborted here)
+│   │   ├── nvidia-cufft-cu12 11.0.2.54 
+│   │   ├── nvidia-curand-cu12 10.3.2.106 
+│   │   ├── nvidia-cusolver-cu12 11.4.5.107 
+│   │   │   ├── nvidia-cublas-cu12 * (circular dependency aborted here)
+│   │   │   ├── nvidia-cusparse-cu12 * 
+│   │   │   │   └── nvidia-nvjitlink-cu12 * 
+│   │   │   └── nvidia-nvjitlink-cu12 * (circular dependency aborted here)
+│   │   ├── nvidia-cusparse-cu12 12.1.0.106 (circular dependency aborted here)
+│   │   ├── nvidia-nccl-cu12 2.21.5 
+│   │   ├── nvidia-nvtx-cu12 12.1.105 
+│   │   ├── setuptools * 
+│   │   ├── sympy 1.13.1 
+│   │   │   └── mpmath >=1.1.0,<1.4 
+│   │   ├── triton 3.1.0 
+│   │   │   └── filelock * (circular dependency aborted here)
+│   │   └── typing-extensions >=4.8.0 (circular dependency aborted here)
+│   ├── tqdm * 
+│   │   └── colorama * 
+│   └── typing-extensions * (circular dependency aborted here)
+├── partial-json-parser *
+├── pillow *
+├── prometheus-client >=0.18.0
+├── prometheus-fastapi-instrumentator >=7.0.0
+│   ├── prometheus-client >=0.8.0,<1.0.0 
+│   └── starlette >=0.30.0,<1.0.0 
+│       ├── anyio >=3.6.2,<5 
+│       │   ├── idna >=2.8 
+│       │   └── typing-extensions >=4.5 
+│       └── typing-extensions >=4.10.0 (circular dependency aborted here)
+├── protobuf *
+├── psutil *
+├── py-cpuinfo *
+├── pydantic >=2.9
+│   ├── annotated-types >=0.6.0 
+│   ├── pydantic-core 2.41.5 
+│   │   └── typing-extensions >=4.14.1 
+│   ├── typing-extensions >=4.14.1 (circular dependency aborted here)
+│   └── typing-inspection >=0.4.2 
+│       └── typing-extensions >=4.12.0 (circular dependency aborted here)
+├── pyyaml *
+├── pyzmq *
+│   └── cffi * 
+│       └── pycparser * 
+├── ray >=2.9
+│   ├── aiohttp >=3.13.3 
+│   │   ├── aiohappyeyeballs >=2.5.0 
+│   │   ├── aiosignal >=1.4.0 
+│   │   │   ├── frozenlist >=1.1.0 
+│   │   │   └── typing-extensions >=4.2 
+│   │   ├── attrs >=17.3.0 
+│   │   ├── frozenlist >=1.1.1 (circular dependency aborted here)
+│   │   ├── multidict >=4.5,<7.0 
+│   │   ├── propcache >=0.2.0 
+│   │   └── yarl >=1.17.0,<2.0 
+│   │       ├── idna >=2.0 
+│   │       ├── multidict >=4.0 (circular dependency aborted here)
+│   │       └── propcache >=0.2.1 (circular dependency aborted here)
+│   ├── aiohttp-cors * 
+│   │   └── aiohttp >=3.9 (circular dependency aborted here)
+│   ├── click >=7.0 
+│   │   └── colorama * 
+│   ├── colorful * 
+│   │   └── colorama * (circular dependency aborted here)
+│   ├── filelock * 
+│   ├── grpcio >=1.42.0 
+│   │   └── typing-extensions >=4.12,<5.0 (circular dependency aborted here)
+│   ├── jsonschema * 
+│   │   ├── attrs >=22.2.0 (circular dependency aborted here)
+│   │   ├── jsonschema-specifications >=2023.03.6 
+│   │   │   └── referencing >=0.31.0 
+│   │   │       ├── attrs >=22.2.0 (circular dependency aborted here)
+│   │   │       ├── rpds-py >=0.7.0 
+│   │   │       └── typing-extensions >=4.4.0 (circular dependency aborted here)
+│   │   ├── referencing >=0.28.4 (circular dependency aborted here)
+│   │   └── rpds-py >=0.25.0 (circular dependency aborted here)
+│   ├── msgpack >=1.0.0,<2.0.0 
+│   ├── opencensus * 
+│   │   ├── google-api-core >=1.0.0,<3.0.0 
+│   │   │   ├── google-auth >=2.14.1,<3.0.0 
+│   │   │   │   ├── cryptography >=38.0.3 
+│   │   │   │   │   └── cffi >=2.0.0 
+│   │   │   │   │       └── pycparser * 
+│   │   │   │   ├── pyasn1-modules >=0.2.1 
+│   │   │   │   │   └── pyasn1 >=0.6.1,<0.7.0 
+│   │   │   │   ├── requests >=2.20.0,<3.0.0 
+│   │   │   │   │   ├── certifi >=2017.4.17 
+│   │   │   │   │   ├── charset-normalizer >=2,<4 
+│   │   │   │   │   ├── idna >=2.5,<4 (circular dependency aborted here)
+│   │   │   │   │   └── urllib3 >=1.21.1,<3 
+│   │   │   │   └── rsa >=3.1.4,<5 
+│   │   │   │       └── pyasn1 >=0.1.3 (circular dependency aborted here)
+│   │   │   ├── googleapis-common-protos >=1.56.3,<2.0.0 
+│   │   │   │   └── protobuf >=3.20.2,<4.21.1 || >4.21.1,<4.21.2 || >4.21.2,<4.21.3 || >4.21.3,<4.21.4 || >4.21.4,<4.21.5 || >4.21.5,<7.0.0 
+│   │   │   ├── grpcio >=1.49.1,<2.0.0 (circular dependency aborted here)
+│   │   │   ├── grpcio-status >=1.49.1,<2.0.0 
+│   │   │   │   ├── googleapis-common-protos >=1.5.5 (circular dependency aborted here)
+│   │   │   │   ├── grpcio >=1.71.2 (circular dependency aborted here)
+│   │   │   │   └── protobuf >=5.26.1,<6.0dev (circular dependency aborted here)
+│   │   │   ├── proto-plus >=1.22.3,<2.0.0 
+│   │   │   │   └── protobuf >=3.19.0,<7.0.0 (circular dependency aborted here)
+│   │   │   ├── protobuf >=4.25.8,<7.0.0 (circular dependency aborted here)
+│   │   │   └── requests >=2.20.0,<3.0.0 (circular dependency aborted here)
+│   │   ├── opencensus-context >=0.1.3 
+│   │   └── six >=1.16,<2.0 
+│   ├── opentelemetry-exporter-prometheus * 
+│   │   ├── opentelemetry-api >=1.12,<2.0 
+│   │   │   ├── importlib-metadata >=6.0,<8.8.0 
+│   │   │   │   └── zipp >=3.20 
+│   │   │   └── typing-extensions >=4.5.0 (circular dependency aborted here)
+│   │   ├── opentelemetry-sdk >=1.41.1,<1.42.0 
+│   │   │   ├── opentelemetry-api 1.41.1 (circular dependency aborted here)
+│   │   │   ├── opentelemetry-semantic-conventions 0.62b1 
+│   │   │   │   ├── opentelemetry-api 1.41.1 (circular dependency aborted here)
+│   │   │   │   └── typing-extensions >=4.5.0 (circular dependency aborted here)
+│   │   │   └── typing-extensions >=4.5.0 (circular dependency aborted here)
+│   │   └── prometheus-client >=0.5.0,<1.0.0 
+│   ├── opentelemetry-proto * 
+│   │   └── protobuf >=5.0,<7.0 (circular dependency aborted here)
+│   ├── opentelemetry-sdk >=1.30.0 (circular dependency aborted here)
+│   ├── packaging >=24.2 
+│   ├── prometheus-client >=0.7.1 (circular dependency aborted here)
+│   ├── protobuf >=3.20.3 (circular dependency aborted here)
+│   ├── py-spy >=0.2.0 
+│   ├── py-spy >=0.4.0 (circular dependency aborted here)
+│   ├── pydantic <2.0.dev0 || >=2.12.dev0,<3 
+│   │   ├── annotated-types >=0.6.0 
+│   │   ├── pydantic-core 2.41.5 
+│   │   │   └── typing-extensions >=4.14.1 (circular dependency aborted here)
+│   │   ├── typing-extensions >=4.14.1 (circular dependency aborted here)
+│   │   └── typing-inspection >=0.4.2 
+│   │       └── typing-extensions >=4.12.0 (circular dependency aborted here)
+│   ├── pyyaml * 
+│   ├── requests * (circular dependency aborted here)
+│   ├── smart-open * 
+│   │   └── wrapt * 
+│   └── virtualenv >=20.0.24,<20.21.1 || >20.21.1 
+│       ├── distlib >=0.3.7,<1 
+│       ├── filelock >=3.24.2,<4 (circular dependency aborted here)
+│       ├── platformdirs >=3.9.1,<5 
+│       └── python-discovery >=1.2.2 
+│           ├── filelock >=3.15.4 (circular dependency aborted here)
+│           └── platformdirs >=4.3.6,<5 (circular dependency aborted here)
+├── requests >=2.26.0
+│   ├── certifi >=2017.4.17 
+│   ├── charset-normalizer >=2,<4 
+│   ├── idna >=2.5,<4 
+│   └── urllib3 >=1.21.1,<3 
+├── sentencepiece *
+├── setuptools >=74.1.1
+├── six >=1.16.0
+├── tiktoken >=0.6.0
+│   ├── regex >=2022.1.18 
+│   └── requests >=2.26.0 
+│       ├── certifi >=2017.4.17 
+│       ├── charset-normalizer >=2,<4 
+│       ├── idna >=2.5,<4 
+│       └── urllib3 >=1.21.1,<3 
+├── tokenizers >=0.19.1
+│   └── huggingface-hub >=0.16.4,<1.0 
+│       ├── filelock * 
+│       ├── fsspec >=2023.5.0 
+│       │   └── aiohttp <4.0.0a0 || >4.0.0a0,<4.0.0a1 || >4.0.0a1 
+│       │       ├── aiohappyeyeballs >=2.5.0 
+│       │       ├── aiosignal >=1.4.0 
+│       │       │   ├── frozenlist >=1.1.0 
+│       │       │   └── typing-extensions >=4.2 
+│       │       ├── attrs >=17.3.0 
+│       │       ├── frozenlist >=1.1.1 (circular dependency aborted here)
+│       │       ├── multidict >=4.5,<7.0 
+│       │       ├── propcache >=0.2.0 
+│       │       └── yarl >=1.17.0,<2.0 
+│       │           ├── idna >=2.0 
+│       │           ├── multidict >=4.0 (circular dependency aborted here)
+│       │           └── propcache >=0.2.1 (circular dependency aborted here)
+│       ├── hf-xet >=1.1.3,<2.0.0 
+│       ├── packaging >=20.9 
+│       ├── pyyaml >=5.1 
+│       ├── requests * 
+│       │   ├── certifi >=2017.4.17 
+│       │   ├── charset-normalizer >=2,<4 
+│       │   ├── idna >=2.5,<4 (circular dependency aborted here)
+│       │   └── urllib3 >=1.21.1,<3 
+│       ├── tqdm >=4.42.1 
+│       │   └── colorama * 
+│       └── typing-extensions >=3.7.4.3 (circular dependency aborted here)
+├── torch 2.5.1
+│   ├── filelock * 
+│   ├── fsspec * 
+│   │   └── aiohttp <4.0.0a0 || >4.0.0a0,<4.0.0a1 || >4.0.0a1 
+│   │       ├── aiohappyeyeballs >=2.5.0 
+│   │       ├── aiosignal >=1.4.0 
+│   │       │   ├── frozenlist >=1.1.0 
+│   │       │   └── typing-extensions >=4.2 
+│   │       ├── attrs >=17.3.0 
+│   │       ├── frozenlist >=1.1.1 (circular dependency aborted here)
+│   │       ├── multidict >=4.5,<7.0 
+│   │       ├── propcache >=0.2.0 
+│   │       └── yarl >=1.17.0,<2.0 
+│   │           ├── idna >=2.0 
+│   │           ├── multidict >=4.0 (circular dependency aborted here)
+│   │           └── propcache >=0.2.1 (circular dependency aborted here)
+│   ├── jinja2 * 
+│   │   └── markupsafe >=2.0 
+│   ├── networkx * 
+│   ├── nvidia-cublas-cu12 12.1.3.1 
+│   ├── nvidia-cuda-cupti-cu12 12.1.105 
+│   ├── nvidia-cuda-nvrtc-cu12 12.1.105 
+│   ├── nvidia-cuda-runtime-cu12 12.1.105 
+│   ├── nvidia-cudnn-cu12 9.1.0.70 
+│   │   └── nvidia-cublas-cu12 * (circular dependency aborted here)
+│   ├── nvidia-cufft-cu12 11.0.2.54 
+│   ├── nvidia-curand-cu12 10.3.2.106 
+│   ├── nvidia-cusolver-cu12 11.4.5.107 
+│   │   ├── nvidia-cublas-cu12 * (circular dependency aborted here)
+│   │   ├── nvidia-cusparse-cu12 * 
+│   │   │   └── nvidia-nvjitlink-cu12 * 
+│   │   └── nvidia-nvjitlink-cu12 * (circular dependency aborted here)
+│   ├── nvidia-cusparse-cu12 12.1.0.106 (circular dependency aborted here)
+│   ├── nvidia-nccl-cu12 2.21.5 
+│   ├── nvidia-nvtx-cu12 12.1.105 
+│   ├── setuptools * 
+│   ├── sympy 1.13.1 
+│   │   └── mpmath >=1.1.0,<1.4 
+│   ├── triton 3.1.0 
+│   │   └── filelock * (circular dependency aborted here)
+│   └── typing-extensions >=4.8.0 (circular dependency aborted here)
+├── torchaudio 2.5.1
+│   └── torch 2.5.1 
+│       ├── filelock * 
+│       ├── fsspec * 
+│       │   └── aiohttp <4.0.0a0 || >4.0.0a0,<4.0.0a1 || >4.0.0a1 
+│       │       ├── aiohappyeyeballs >=2.5.0 
+│       │       ├── aiosignal >=1.4.0 
+│       │       │   ├── frozenlist >=1.1.0 
+│       │       │   └── typing-extensions >=4.2 
+│       │       ├── attrs >=17.3.0 
+│       │       ├── frozenlist >=1.1.1 (circular dependency aborted here)
+│       │       ├── multidict >=4.5,<7.0 
+│       │       ├── propcache >=0.2.0 
+│       │       └── yarl >=1.17.0,<2.0 
+│       │           ├── idna >=2.0 
+│       │           ├── multidict >=4.0 (circular dependency aborted here)
+│       │           └── propcache >=0.2.1 (circular dependency aborted here)
+│       ├── jinja2 * 
+│       │   └── markupsafe >=2.0 
+│       ├── networkx * 
+│       ├── nvidia-cublas-cu12 12.1.3.1 
+│       ├── nvidia-cuda-cupti-cu12 12.1.105 
+│       ├── nvidia-cuda-nvrtc-cu12 12.1.105 
+│       ├── nvidia-cuda-runtime-cu12 12.1.105 
+│       ├── nvidia-cudnn-cu12 9.1.0.70 
+│       │   └── nvidia-cublas-cu12 * (circular dependency aborted here)
+│       ├── nvidia-cufft-cu12 11.0.2.54 
+│       ├── nvidia-curand-cu12 10.3.2.106 
+│       ├── nvidia-cusolver-cu12 11.4.5.107 
+│       │   ├── nvidia-cublas-cu12 * (circular dependency aborted here)
+│       │   ├── nvidia-cusparse-cu12 * 
+│       │   │   └── nvidia-nvjitlink-cu12 * 
+│       │   └── nvidia-nvjitlink-cu12 * (circular dependency aborted here)
+│       ├── nvidia-cusparse-cu12 12.1.0.106 (circular dependency aborted here)
+│       ├── nvidia-nccl-cu12 2.21.5 
+│       ├── nvidia-nvtx-cu12 12.1.105 
+│       ├── setuptools * 
+│       ├── sympy 1.13.1 
+│       │   └── mpmath >=1.1.0,<1.4 
+│       ├── triton 3.1.0 
+│       │   └── filelock * (circular dependency aborted here)
+│       └── typing-extensions >=4.8.0 (circular dependency aborted here)
+├── torchvision 0.20.1
+│   ├── numpy * 
+│   ├── pillow >=5.3.0,<8.3.dev0 || >=8.4.dev0 
+│   └── torch 2.5.1 
+│       ├── filelock * 
+│       ├── fsspec * 
+│       │   └── aiohttp <4.0.0a0 || >4.0.0a0,<4.0.0a1 || >4.0.0a1 
+│       │       ├── aiohappyeyeballs >=2.5.0 
+│       │       ├── aiosignal >=1.4.0 
+│       │       │   ├── frozenlist >=1.1.0 
+│       │       │   └── typing-extensions >=4.2 
+│       │       ├── attrs >=17.3.0 
+│       │       ├── frozenlist >=1.1.1 (circular dependency aborted here)
+│       │       ├── multidict >=4.5,<7.0 
+│       │       ├── propcache >=0.2.0 
+│       │       └── yarl >=1.17.0,<2.0 
+│       │           ├── idna >=2.0 
+│       │           ├── multidict >=4.0 (circular dependency aborted here)
+│       │           └── propcache >=0.2.1 (circular dependency aborted here)
+│       ├── jinja2 * 
+│       │   └── markupsafe >=2.0 
+│       ├── networkx * 
+│       ├── nvidia-cublas-cu12 12.1.3.1 
+│       ├── nvidia-cuda-cupti-cu12 12.1.105 
+│       ├── nvidia-cuda-nvrtc-cu12 12.1.105 
+│       ├── nvidia-cuda-runtime-cu12 12.1.105 
+│       ├── nvidia-cudnn-cu12 9.1.0.70 
+│       │   └── nvidia-cublas-cu12 * (circular dependency aborted here)
+│       ├── nvidia-cufft-cu12 11.0.2.54 
+│       ├── nvidia-curand-cu12 10.3.2.106 
+│       ├── nvidia-cusolver-cu12 11.4.5.107 
+│       │   ├── nvidia-cublas-cu12 * (circular dependency aborted here)
+│       │   ├── nvidia-cusparse-cu12 * 
+│       │   │   └── nvidia-nvjitlink-cu12 * 
+│       │   └── nvidia-nvjitlink-cu12 * (circular dependency aborted here)
+│       ├── nvidia-cusparse-cu12 12.1.0.106 (circular dependency aborted here)
+│       ├── nvidia-nccl-cu12 2.21.5 
+│       ├── nvidia-nvtx-cu12 12.1.105 
+│       ├── setuptools * 
+│       ├── sympy 1.13.1 
+│       │   └── mpmath >=1.1.0,<1.4 
+│       ├── triton 3.1.0 
+│       │   └── filelock * (circular dependency aborted here)
+│       └── typing-extensions >=4.8.0 (circular dependency aborted here)
+├── tqdm *
+│   └── colorama * 
+├── transformers >=4.48.2
+│   ├── filelock * 
+│   ├── huggingface-hub >=0.30.0,<1.0 
+│   │   ├── filelock * (circular dependency aborted here)
+│   │   ├── fsspec >=2023.5.0 
+│   │   │   └── aiohttp <4.0.0a0 || >4.0.0a0,<4.0.0a1 || >4.0.0a1 
+│   │   │       ├── aiohappyeyeballs >=2.5.0 
+│   │   │       ├── aiosignal >=1.4.0 
+│   │   │       │   ├── frozenlist >=1.1.0 
+│   │   │       │   └── typing-extensions >=4.2 
+│   │   │       ├── attrs >=17.3.0 
+│   │   │       ├── frozenlist >=1.1.1 (circular dependency aborted here)
+│   │   │       ├── multidict >=4.5,<7.0 
+│   │   │       ├── propcache >=0.2.0 
+│   │   │       └── yarl >=1.17.0,<2.0 
+│   │   │           ├── idna >=2.0 
+│   │   │           ├── multidict >=4.0 (circular dependency aborted here)
+│   │   │           └── propcache >=0.2.1 (circular dependency aborted here)
+│   │   ├── hf-xet >=1.1.3,<2.0.0 
+│   │   ├── packaging >=20.9 
+│   │   ├── pyyaml >=5.1 
+│   │   ├── requests * 
+│   │   │   ├── certifi >=2017.4.17 
+│   │   │   ├── charset-normalizer >=2,<4 
+│   │   │   ├── idna >=2.5,<4 (circular dependency aborted here)
+│   │   │   └── urllib3 >=1.21.1,<3 
+│   │   ├── tqdm >=4.42.1 
+│   │   │   └── colorama * 
+│   │   └── typing-extensions >=3.7.4.3 (circular dependency aborted here)
+│   ├── numpy >=1.17 
+│   ├── packaging >=20.0 (circular dependency aborted here)
+│   ├── pyyaml >=5.1 (circular dependency aborted here)
+│   ├── regex !=2019.12.17 
+│   ├── requests * (circular dependency aborted here)
+│   ├── safetensors >=0.4.3 
+│   ├── tokenizers >=0.21,<0.22 
+│   │   └── huggingface-hub >=0.16.4,<1.0 (circular dependency aborted here)
+│   └── tqdm >=4.27 (circular dependency aborted here)
+├── typing-extensions >=4.10
+├── uvicorn *
+│   ├── click >=7.0 
+│   │   └── colorama * 
+│   ├── colorama >=0.4 (circular dependency aborted here)
+│   ├── h11 >=0.8 
+│   ├── httptools >=0.6.3 
+│   ├── python-dotenv >=0.13 
+│   ├── pyyaml >=5.1 
+│   ├── uvloop >=0.15.1 
+│   ├── watchfiles >=0.20 
+│   │   └── anyio >=3.0.0 
+│   │       ├── idna >=2.8 
+│   │       └── typing-extensions >=4.5 
+│   └── websockets >=10.4 
+├── xformers 0.0.28.post3
+│   ├── numpy * 
+│   └── torch 2.5.1 
+│       ├── filelock * 
+│       ├── fsspec * 
+│       │   └── aiohttp <4.0.0a0 || >4.0.0a0,<4.0.0a1 || >4.0.0a1 
+│       │       ├── aiohappyeyeballs >=2.5.0 
+│       │       ├── aiosignal >=1.4.0 
+│       │       │   ├── frozenlist >=1.1.0 
+│       │       │   └── typing-extensions >=4.2 
+│       │       ├── attrs >=17.3.0 
+│       │       ├── frozenlist >=1.1.1 (circular dependency aborted here)
+│       │       ├── multidict >=4.5,<7.0 
+│       │       ├── propcache >=0.2.0 
+│       │       └── yarl >=1.17.0,<2.0 
+│       │           ├── idna >=2.0 
+│       │           ├── multidict >=4.0 (circular dependency aborted here)
+│       │           └── propcache >=0.2.1 (circular dependency aborted here)
+│       ├── jinja2 * 
+│       │   └── markupsafe >=2.0 
+│       ├── networkx * 
+│       ├── nvidia-cublas-cu12 12.1.3.1 
+│       ├── nvidia-cuda-cupti-cu12 12.1.105 
+│       ├── nvidia-cuda-nvrtc-cu12 12.1.105 
+│       ├── nvidia-cuda-runtime-cu12 12.1.105 
+│       ├── nvidia-cudnn-cu12 9.1.0.70 
+│       │   └── nvidia-cublas-cu12 * (circular dependency aborted here)
+│       ├── nvidia-cufft-cu12 11.0.2.54 
+│       ├── nvidia-curand-cu12 10.3.2.106 
+│       ├── nvidia-cusolver-cu12 11.4.5.107 
+│       │   ├── nvidia-cublas-cu12 * (circular dependency aborted here)
+│       │   ├── nvidia-cusparse-cu12 * 
+│       │   │   └── nvidia-nvjitlink-cu12 * 
+│       │   └── nvidia-nvjitlink-cu12 * (circular dependency aborted here)
+│       ├── nvidia-cusparse-cu12 12.1.0.106 (circular dependency aborted here)
+│       ├── nvidia-nccl-cu12 2.21.5 
+│       ├── nvidia-nvtx-cu12 12.1.105 
+│       ├── setuptools * 
+│       ├── sympy 1.13.1 
+│       │   └── mpmath >=1.1.0,<1.4 
+│       ├── triton 3.1.0 
+│       │   └── filelock * (circular dependency aborted here)
+│       └── typing-extensions >=4.8.0 (circular dependency aborted here)
+└── xgrammar >=0.1.6
+    ├── numpy * 
+    ├── pydantic * 
+    │   ├── annotated-types >=0.6.0 
+    │   ├── pydantic-core 2.41.5 
+    │   │   └── typing-extensions >=4.14.1 
+    │   ├── typing-extensions >=4.14.1 (circular dependency aborted here)
+    │   └── typing-inspection >=0.4.2 
+    │       └── typing-extensions >=4.12.0 (circular dependency aborted here)
+    ├── torch >=1.10.0 
+    │   ├── filelock * 
+    │   ├── fsspec * 
+    │   │   └── aiohttp <4.0.0a0 || >4.0.0a0,<4.0.0a1 || >4.0.0a1 
+    │   │       ├── aiohappyeyeballs >=2.5.0 
+    │   │       ├── aiosignal >=1.4.0 
+    │   │       │   ├── frozenlist >=1.1.0 
+    │   │       │   └── typing-extensions >=4.2 (circular dependency aborted here)
+    │   │       ├── attrs >=17.3.0 
+    │   │       ├── frozenlist >=1.1.1 (circular dependency aborted here)
+    │   │       ├── multidict >=4.5,<7.0 
+    │   │       ├── propcache >=0.2.0 
+    │   │       └── yarl >=1.17.0,<2.0 
+    │   │           ├── idna >=2.0 
+    │   │           ├── multidict >=4.0 (circular dependency aborted here)
+    │   │           └── propcache >=0.2.1 (circular dependency aborted here)
+    │   ├── jinja2 * 
+    │   │   └── markupsafe >=2.0 
+    │   ├── networkx * 
+    │   ├── nvidia-cublas-cu12 12.1.3.1 
+    │   ├── nvidia-cuda-cupti-cu12 12.1.105 
+    │   ├── nvidia-cuda-nvrtc-cu12 12.1.105 
+    │   ├── nvidia-cuda-runtime-cu12 12.1.105 
+    │   ├── nvidia-cudnn-cu12 9.1.0.70 
+    │   │   └── nvidia-cublas-cu12 * (circular dependency aborted here)
+    │   ├── nvidia-cufft-cu12 11.0.2.54 
+    │   ├── nvidia-curand-cu12 10.3.2.106 
+    │   ├── nvidia-cusolver-cu12 11.4.5.107 
+    │   │   ├── nvidia-cublas-cu12 * (circular dependency aborted here)
+    │   │   ├── nvidia-cusparse-cu12 * 
+    │   │   │   └── nvidia-nvjitlink-cu12 * 
+    │   │   └── nvidia-nvjitlink-cu12 * (circular dependency aborted here)
+    │   ├── nvidia-cusparse-cu12 12.1.0.106 (circular dependency aborted here)
+    │   ├── nvidia-nccl-cu12 2.21.5 
+    │   ├── nvidia-nvtx-cu12 12.1.105 
+    │   ├── setuptools * 
+    │   ├── sympy 1.13.1 
+    │   │   └── mpmath >=1.1.0,<1.4 
+    │   ├── triton 3.1.0 
+    │   │   └── filelock * (circular dependency aborted here)
+    │   └── typing-extensions >=4.8.0 (circular dependency aborted here)
+    ├── transformers >=4.38.0 
+    │   ├── filelock * (circular dependency aborted here)
+    │   ├── huggingface-hub >=0.30.0,<1.0 
+    │   │   ├── filelock * (circular dependency aborted here)
+    │   │   ├── fsspec >=2023.5.0 (circular dependency aborted here)
+    │   │   ├── hf-xet >=1.1.3,<2.0.0 
+    │   │   ├── packaging >=20.9 
+    │   │   ├── pyyaml >=5.1 
+    │   │   ├── requests * 
+    │   │   │   ├── certifi >=2017.4.17 
+    │   │   │   ├── charset-normalizer >=2,<4 
+    │   │   │   ├── idna >=2.5,<4 (circular dependency aborted here)
+    │   │   │   └── urllib3 >=1.21.1,<3 
+    │   │   ├── tqdm >=4.42.1 
+    │   │   │   └── colorama * 
+    │   │   └── typing-extensions >=3.7.4.3 (circular dependency aborted here)
+    │   ├── numpy >=1.17 (circular dependency aborted here)
+    │   ├── packaging >=20.0 (circular dependency aborted here)
+    │   ├── pyyaml >=5.1 (circular dependency aborted here)
+    │   ├── regex !=2019.12.17 
+    │   ├── requests * (circular dependency aborted here)
+    │   ├── safetensors >=0.4.3 
+    │   ├── tokenizers >=0.21,<0.22 
+    │   │   └── huggingface-hub >=0.16.4,<1.0 (circular dependency aborted here)
+    │   └── tqdm >=4.27 (circular dependency aborted here)
+    ├── triton * (circular dependency aborted here)
+    └── typing-extensions >=4.9.0 (circular dependency aborted here)
+xformers 0.0.28.post3 XFormers: A collection of composable Transformer building blocks.
+├── numpy *
+└── torch 2.5.1
+    ├── filelock * 
+    ├── fsspec * 
+    │   └── aiohttp <4.0.0a0 || >4.0.0a0,<4.0.0a1 || >4.0.0a1 
+    │       ├── aiohappyeyeballs >=2.5.0 
+    │       ├── aiosignal >=1.4.0 
+    │       │   ├── frozenlist >=1.1.0 
+    │       │   └── typing-extensions >=4.2 
+    │       ├── attrs >=17.3.0 
+    │       ├── frozenlist >=1.1.1 (circular dependency aborted here)
+    │       ├── multidict >=4.5,<7.0 
+    │       ├── propcache >=0.2.0 
+    │       └── yarl >=1.17.0,<2.0 
+    │           ├── idna >=2.0 
+    │           ├── multidict >=4.0 (circular dependency aborted here)
+    │           └── propcache >=0.2.1 (circular dependency aborted here)
+    ├── jinja2 * 
+    │   └── markupsafe >=2.0 
+    ├── networkx * 
+    ├── nvidia-cublas-cu12 12.1.3.1 
+    ├── nvidia-cuda-cupti-cu12 12.1.105 
+    ├── nvidia-cuda-nvrtc-cu12 12.1.105 
+    ├── nvidia-cuda-runtime-cu12 12.1.105 
+    ├── nvidia-cudnn-cu12 9.1.0.70 
+    │   └── nvidia-cublas-cu12 * (circular dependency aborted here)
+    ├── nvidia-cufft-cu12 11.0.2.54 
+    ├── nvidia-curand-cu12 10.3.2.106 
+    ├── nvidia-cusolver-cu12 11.4.5.107 
+    │   ├── nvidia-cublas-cu12 * (circular dependency aborted here)
+    │   ├── nvidia-cusparse-cu12 * 
+    │   │   └── nvidia-nvjitlink-cu12 * 
+    │   └── nvidia-nvjitlink-cu12 * (circular dependency aborted here)
+    ├── nvidia-cusparse-cu12 12.1.0.106 (circular dependency aborted here)
+    ├── nvidia-nccl-cu12 2.21.5 
+    ├── nvidia-nvtx-cu12 12.1.105 
+    ├── setuptools * 
+    ├── sympy 1.13.1 
+    │   └── mpmath >=1.1.0,<1.4 
+    ├── triton 3.1.0 
+    │   └── filelock * (circular dependency aborted here)
+    └── typing-extensions >=4.8.0 (circular dependency aborted here)
