@@ -1,5 +1,5 @@
 [project]
-name = "nlp"
+name = "llm-midi-analyzer"
 version = "0.1.0"
 description = ""
 authors = [
@@ -22,7 +22,6 @@ dependencies = [
     "h5py (>=3.16.0,<4.0.0)",
     "miditok (>=3.0.6.post1,<4.0.0)",
     "symusic (>=0.6.0,<0.7.0)",
-    "torch (>=2.5.1,<2.11.0)",
     "transformers (==4.51.3)",
     "xformers",
 #    "vllm (>=0.7.0)",
@@ -51,4 +50,4 @@ priority = "explicit"
 
 
 [tool.poetry.dependencies]
-torch = {source = "pytorch"}
+torch = { version = ">=2.5.1,<2.11.0", source = "pytorch" }

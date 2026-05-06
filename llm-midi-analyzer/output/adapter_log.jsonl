@@ -1,0 +1,44 @@
+{"epoch": 1, "mode": "vqvae", "avg_loss": 0.17123, "vram_mb": 2764.6, "token_length_out": 32}
+{"epoch": 1, "mode": "vqvae", "avg_loss": 0.086293, "vram_mb": 2799.9, "token_length_out": 32}
+{"epoch": 2, "mode": "vqvae", "avg_loss": 0.041471, "vram_mb": 2799.9, "token_length_out": 32}
+{"epoch": 3, "mode": "vqvae", "avg_loss": 0.039843, "vram_mb": 2799.9, "token_length_out": 32}
+{"epoch": 4, "mode": "vqvae", "avg_loss": 0.039644, "vram_mb": 2799.9, "token_length_out": 32}
+{"epoch": 1, "mode": "vqvae", "avg_loss": 1.006204, "vram_mb": 3976.0, "token_length_out": 256}
+{"epoch": 1, "mode": "vqvae", "avg_loss": 10.689493, "vram_mb": 3870.1, "token_length_out": 256}
+{"epoch": 2, "mode": "vqvae", "avg_loss": 7.193736, "vram_mb": 3870.1, "token_length_out": 256}
+{"epoch": 1, "mode": "vqvae", "avg_loss": 0.85376, "vram_mb": 3976.0, "token_length_out": 256}
+{"epoch": 2, "mode": "vqvae", "avg_loss": 0.066179, "vram_mb": 3976.0, "token_length_out": 256}
+{"epoch": 1, "mode": "direct", "avg_loss": 0.772483, "vram_mb": 3562.1, "token_length_out": 64}
+{"epoch": 1, "mode": "vqvae", "avg_loss": 0.252392, "vram_mb": 2923.9, "token_length_out": 64}
+{"epoch": 1, "mode": "vqvae", "avg_loss": 8.680502, "vram_mb": 2928.0, "token_length_out": 256}
+{"epoch": 1, "mode": "vqvae", "avg_loss": 0.250476, "vram_mb": 4020.7, "token_length_out": 256}
+{"epoch": 1, "mode": "vqvae", "avg_loss": 0.232869, "vram_mb": 3960.2, "token_length_out": 256}
+{"epoch": 2, "mode": "vqvae", "avg_loss": 0.090103, "vram_mb": 3960.2, "token_length_out": 256}
+{"epoch": 3, "mode": "vqvae", "avg_loss": 0.082784, "vram_mb": 3960.2, "token_length_out": 256}
+{"epoch": 4, "mode": "vqvae", "avg_loss": 0.080276, "vram_mb": 3960.2, "token_length_out": 256}
+{"epoch": 5, "mode": "vqvae", "avg_loss": 0.079337, "vram_mb": 3960.2, "token_length_out": 256}
+{"epoch": 6, "mode": "vqvae", "avg_loss": 0.078178, "vram_mb": 3960.2, "token_length_out": 256}
+{"epoch": 7, "mode": "vqvae", "avg_loss": 0.077339, "vram_mb": 3960.2, "token_length_out": 256}
+{"epoch": 8, "mode": "vqvae", "avg_loss": 0.077164, "vram_mb": 3960.2, "token_length_out": 256}
+{"epoch": 9, "mode": "vqvae", "avg_loss": 0.077455, "vram_mb": 3960.2, "token_length_out": 256}
+{"epoch": 10, "mode": "vqvae", "avg_loss": 0.076216, "vram_mb": 3960.2, "token_length_out": 256}
+{"epoch": 11, "mode": "vqvae", "avg_loss": 0.076621, "vram_mb": 3960.2, "token_length_out": 256}
+{"epoch": 12, "mode": "vqvae", "avg_loss": 0.076286, "vram_mb": 3960.2, "token_length_out": 256}
+{"epoch": 13, "mode": "vqvae", "avg_loss": 0.076591, "vram_mb": 3960.2, "token_length_out": 256}
+{"epoch": 14, "mode": "vqvae", "avg_loss": 0.075384, "vram_mb": 3960.2, "token_length_out": 256}
+{"epoch": 15, "mode": "vqvae", "avg_loss": 0.076281, "vram_mb": 3960.2, "token_length_out": 256}
+{"epoch": 1, "mode": "vqvae", "train_loss": 0.281293, "val_loss": 0.124464, "vram_mb": 4020.7, "token_length_out": 256}
+{"epoch": 2, "mode": "vqvae", "train_loss": 0.105341, "val_loss": 0.109949, "vram_mb": 4020.7, "token_length_out": 256}
+{"epoch": 3, "mode": "vqvae", "train_loss": 0.095684, "val_loss": 0.104902, "vram_mb": 4020.7, "token_length_out": 256}
+{"epoch": 4, "mode": "vqvae", "train_loss": 0.096894, "val_loss": 0.104277, "vram_mb": 4020.7, "token_length_out": 256}
+{"epoch": 5, "mode": "vqvae", "train_loss": 0.090551, "val_loss": 0.103677, "vram_mb": 4020.7, "token_length_out": 256}
+{"epoch": 6, "mode": "vqvae", "train_loss": 0.089247, "val_loss": 0.102613, "vram_mb": 4020.7, "token_length_out": 256}
+{"epoch": 7, "mode": "vqvae", "train_loss": 0.088617, "val_loss": 0.10291, "vram_mb": 4020.7, "token_length_out": 256}
+{"epoch": 8, "mode": "vqvae", "train_loss": 0.088376, "val_loss": 0.104477, "vram_mb": 4020.7, "token_length_out": 256}
+{"epoch": 9, "mode": "vqvae", "train_loss": 0.087871, "val_loss": 0.103396, "vram_mb": 4020.7, "token_length_out": 256}
+{"epoch": 10, "mode": "vqvae", "train_loss": 0.087525, "val_loss": 0.103678, "vram_mb": 4020.7, "token_length_out": 256}
+{"epoch": 1, "mode": "vqvae", "train_loss": 0.21878, "val_loss": 0.121472, "vram_mb": 4005.6, "token_length_out": 256}
+{"epoch": 2, "mode": "vqvae", "train_loss": 0.104636, "val_loss": 0.119398, "vram_mb": 4005.6, "token_length_out": 256}
+{"epoch": 3, "mode": "vqvae", "train_loss": 0.105536, "val_loss": 0.108159, "vram_mb": 4005.6, "token_length_out": 256}
+{"epoch": 4, "mode": "vqvae", "train_loss": 0.093235, "val_loss": 0.103421, "vram_mb": 4005.6, "token_length_out": 256}
+{"epoch": 5, "mode": "vqvae", "train_loss": 0.090956, "val_loss": 0.103566, "vram_mb": 4005.6, "token_length_out": 256}

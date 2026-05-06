@@ -1,0 +1,19 @@
+OmniLLM-Muse VQ-VAE Inspection Report
+======================================
+Checkpoint : checkpoints/best/omni_v6_epoch10.pt
+Epoch      : 10
+Train loss : 0.0033394379316011085
+
+Model
+  input_dim    = 8
+  hidden_dim   = 256
+  codebook_size = 512
+
+Reconstruction
+  MSE Loss (Samples) : 5.812035
+
+Codebook Analysis
+  1-Bar (m1) PPLX : 427.59 (512/512 active, 100.0%)
+  4-Bar (m4) PPLX : 385.13 (485/512 active, 94.7%)
+
+MIDI Outputs saved to: output/vqvae/midi/

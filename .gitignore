@@ -38,8 +38,8 @@ poetry.lock
 llm-midi-analyzer/data/
 llm-midi-analyzer/checkpoints/
 llm-midi-analyzer/models/
-llm-midi-analyzer/midi/
-llm-midi-analyzer/output/
+# llm-midi-analyzer/midi/
+# llm-midi-analyzer/output/
 llm-midi-analyzer/*.pt
 llm-midi-analyzer/*.pth
 llm-midi-analyzer/*.bin
