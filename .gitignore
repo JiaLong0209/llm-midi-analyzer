@@ -47,3 +47,4 @@ llm-midi-analyzer/*.safetensors
 llm-midi-analyzer/*.log
 llm-midi-analyzer/*.jsonl
 
+llm-midi-analyzer/runs/

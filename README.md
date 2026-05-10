@@ -513,6 +513,20 @@ poetry run python src/train_adapter.py \
     --output_dir checkpoints/adapter/exp_0504_1b_lora_epoch5
 ```
 
+### Step 4: MusicBERT adapter
+```bash
+# 確保在 llm-midi-analyzer 目錄下
+PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True \
+poetry run python src/train_adapter.py \
+    --mode musicbert \
+    --musicbert manoskary/musicbert-large \
+    --data_dir data/tokenized_8d \
+    --batch_size 2 \
+    --epochs 5
+```
+
+
+
 ---
 
 ## 8. Configuration Reference

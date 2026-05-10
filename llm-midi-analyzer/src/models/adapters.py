@@ -206,6 +206,82 @@ class CrossAttentionAdapter(nn.Module):
 
 
 # ──────────────────────────────────────────────────────────────────────
+# Path C — MusicBERT / Pretrained Transformer Adapter
+# ──────────────────────────────────────────────────────────────────────
+class MusicBERTAdapter(nn.Module):
+    """
+    Path C — Pretrained Encoder Adapter.
+    Uses a RoBERTa-based architecture (MusicBERT style) to extract
+    deep musical semantic features.
+    
+    Downsamples N -> N/4 using a stride-4 convolution before BERT
+    to maintain fair comparison with Path A and Path B.
+    """
+    def __init__(self, config):
+        super().__init__()
+        from transformers import RobertaConfig, RobertaModel
+        
+        d = config.d_llm
+        
+        # 1. Load Pretrained Encoder first to get correct dimensions
+        try:
+            print(f"📦 Loading MusicBERT backbone from: {config.musicbert_model_path}")
+            self.bert = RobertaModel.from_pretrained(config.musicbert_model_path)
+        except Exception as e:
+            print(f"⚠️  Could not load pretrained weights ({e}). Initializing random RoBERTa.")
+            # Fallback configuration
+            bert_cfg = RobertaConfig(
+                vocab_size=1, # We don't use the embedding layer tokens
+                hidden_size=768,
+                num_hidden_layers=6,
+                num_attention_heads=12,
+                intermediate_size=3072,
+            )
+            self.bert = RobertaModel(bert_cfg)
+
+        # 2. Resolve hidden dimension dynamically
+        self.d_model = self.bert.config.hidden_size
+        print(f"   Detected hidden_size: {self.d_model}")
+
+        # 3. Initialize layers with correct dimension
+        # Input Projection & Downsampling (N -> N/4)
+        self.input_proj = nn.Conv1d(config.input_dim, self.d_model, kernel_size=7, stride=4, padding=3)
+
+        if config.freeze_vqvae: # Reusing this flag for encoder freezing
+            print(f"❄️  Freezing MusicBERT encoder ({self.d_model})")
+            for p in self.bert.parameters():
+                p.requires_grad_(False)
+
+        # Output Projection to LLM dim
+        self.pe = SinusoidalPE(self.d_model)
+        self.output_proj = nn.Sequential(
+            nn.LayerNorm(self.d_model),
+            nn.Linear(self.d_model, d),
+        )
+
+    def forward(self, x: torch.Tensor) -> torch.Tensor:
+        """
+        Args:
+            x: (B, N, 8) OctupleMIDI
+        Returns:
+            (B, N/4, D_llm)
+        """
+        # x: (B, N, 8) -> norm to [-1, 1]
+        x_norm = x.float() / 128.0 - 1.0
+        
+        # Downsample & Project: (B, N, 8) -> (B, d_model, N/4) -> (B, N/4, d_model)
+        h = self.input_proj(x_norm.transpose(1, 2)).transpose(1, 2)
+        
+        # BERT Encoding
+        # We skip the standard embedding layer and use our projected features as inputs_embeds
+        bert_out = self.bert(inputs_embeds=h)
+        h = bert_out.last_hidden_state # (B, N/4, d_model)
+        
+        h = self.pe(h)
+        return self.output_proj(h)
+
+
+# ──────────────────────────────────────────────────────────────────────
 # Factory (Factory Pattern)
 # ──────────────────────────────────────────────────────────────────────
 class AdapterFactory:
@@ -218,5 +294,8 @@ class AdapterFactory:
         elif config.projection_mode == "vqvae":
             print("🏗️  Building CrossAttentionAdapter (Path B)")
             return CrossAttentionAdapter(config)
+        elif config.projection_mode == "musicbert":
+            print(f"🏗️  Building MusicBERTAdapter (Path C) using {config.musicbert_model_path}")
+            return MusicBERTAdapter(config)
         else:
             raise ValueError(f"Unknown projection_mode: {config.projection_mode!r}")

@@ -108,8 +108,9 @@ class TrainingConfig:
 # ────────────────────────────────────────────────────────────────
 @dataclass
 class AdapterConfig:
-    # "direct"  → DirectMLPAdapter (Path A baseline)
-    # "vqvae"   → CrossAttentionAdapter (Path B proposed)
+    # "direct"   → DirectMLPAdapter (Path A baseline)
+    # "vqvae"    → CrossAttentionAdapter (Path B proposed)
+    # "musicbert"→ MusicBERTAdapter (Path C pretrained encoder)
     projection_mode: str = "direct"
     d_llm: int = 2048                      # Llama 3.2 1B hidden dim
     d_vq: int = 256                        # Must match VQ-VAE hidden_dim (e.g. best8d)
@@ -117,6 +118,7 @@ class AdapterConfig:
     input_dim: int = 8                     # OctupleMIDI input features
     codebook_size: int = 512               # Must match VQ-VAE codebook_size
     vqvae_checkpoint: str = None           # Path to .pt file (Path B only)
+    musicbert_model_path: str = "roberta-base" # HF path or local dir (Path C only)
     vqvae_min_codebook_usage: float = 0.10 # Health check threshold
     freeze_vqvae: bool = True              # Only train adapter weights
     qlora_r: int = 16                      # QLoRA rank

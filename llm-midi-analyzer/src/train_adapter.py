@@ -17,8 +17,9 @@ Usage:
 import sys
 import os
 import json
-import time
 import argparse
+import time
+from datetime import datetime
 import numpy as np
 import torch
 import torch.nn as nn
@@ -26,6 +27,7 @@ from torch.utils.data import Dataset, DataLoader
 from tqdm import tqdm
 from transformers import AutoTokenizer, AutoModelForCausalLM, BitsAndBytesConfig
 from peft import LoraConfig, get_peft_model, TaskType
+from torch.utils.tensorboard import SummaryWriter
 
 # Add src to path
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__))))
@@ -209,6 +211,7 @@ def train(args):
         use_unsloth=args.unsloth,
         qlora_r=args.lora_r,
         qlora_alpha=args.lora_alpha,
+        musicbert_model_path=args.musicbert,
     )
 
     # Build adapter
@@ -238,6 +241,11 @@ def train(args):
 
     os.makedirs(args.output_dir, exist_ok=True)
     log_path = os.path.join(args.output_dir, "adapter_log.jsonl")
+    
+    # TensorBoard Setup
+    log_dir = os.path.join("runs", f"adapter_{args.mode}_{datetime.now().strftime('%Y%m%d_%H%M%S')}")
+    writer = SummaryWriter(log_dir=log_dir)
+    print(f"📊 TensorBoard logs → {log_dir}")
 
     print(f"\n{'='*60}")
     print(f"🚀 Training — Mode: {args.mode.upper()}")
@@ -337,6 +345,7 @@ def train(args):
             seq_len_report = args.seq_len // 4  # after stride/vqvae compression
 
             log_entry = {
+                "timestamp": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
                 "epoch": epoch,
                 "mode": args.mode,
                 "train_loss": round(avg_train_loss, 6),
@@ -344,7 +353,13 @@ def train(args):
                 "vram_mb": round(vram, 1),
                 "token_length_out": seq_len_report,
             }
-            print(f"  📈 Epoch {epoch} | train_loss={avg_train_loss:.4f} | val_loss={avg_val_loss:.4f} | vram={vram:.0f}MB | tokens={seq_len_report}")
+            ts = log_entry["timestamp"]
+            print(f"[{ts}] 📈 Epoch {epoch} | train_loss={avg_train_loss:.4f} | val_loss={avg_val_loss:.4f} | vram={vram:.0f}MB")
+
+            # TensorBoard Logging
+            writer.add_scalar("Loss/Train", avg_train_loss, epoch)
+            writer.add_scalar("Loss/Validation", avg_val_loss, epoch)
+            writer.add_scalar("Stats/VRAM_MB", vram, epoch)
             with open(log_path, "a") as f:
                 f.write(json.dumps(log_entry) + "\n")
     
@@ -383,10 +398,11 @@ def train(args):
 # ──────────────────────────────────────────────────────────────────────
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="MIDI-to-LLM Adapter Trainer (Ablation Study)")
-    parser.add_argument("--mode", choices=["direct", "vqvae"], required=True)
+    parser.add_argument("--mode", choices=["direct", "vqvae", "musicbert"], required=True)
     parser.add_argument("--data_dir", default="data/tokenized_8d", help="Pre-tokenized .npy directory")
     parser.add_argument("--llm", default="models/MIDI-LLM", help="LLM model path")
     parser.add_argument("--vqvae", type=str, default=None, help="Path to VQ-VAE checkpoint (vqvae mode only)")
+    parser.add_argument("--musicbert", type=str, default="roberta-base", help="HF path or local dir for MusicBERT encoder")
     parser.add_argument("--d_vq", type=int, default=256, help="VQ-VAE hidden dim (must match checkpoint)")
     parser.add_argument("--seq_len", type=int, default=128)
     parser.add_argument("--batch_size", type=int, default=2, help="Small batch for 8GB VRAM")

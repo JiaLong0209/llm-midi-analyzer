@@ -24,6 +24,8 @@ import torch.optim as optim
 import torch.nn.functional as F
 from torch.utils.data import Dataset, DataLoader
 from tqdm import tqdm
+from datetime import datetime
+from torch.utils.tensorboard import SummaryWriter
 from miditok import Octuple
 from symusic import Score
 from concurrent.futures import ProcessPoolExecutor
@@ -370,6 +372,12 @@ def train(omni_cfg: OmniConfig, resume_path: str = None, model_name: str = None,
     print("=" * 60)
 
     os.makedirs(tcfg.checkpoint_dir, exist_ok=True)
+    
+    # TensorBoard Setup
+    run_name = model_name if model_name else mcfg.variant
+    log_dir = os.path.join("runs", f"vqvae_{run_name}_{datetime.now().strftime('%Y%m%d_%H%M%S')}")
+    writer = SummaryWriter(log_dir=log_dir)
+    print(f"📊 TensorBoard logs → {log_dir}")
 
     try:
         for epoch in range(start_epoch, start_epoch + tcfg.num_epochs):
@@ -432,7 +440,17 @@ def train(omni_cfg: OmniConfig, resume_path: str = None, model_name: str = None,
             avg_val_perp = val_perp_total / n_val
             
             lr_now = scheduler.get_last_lr()[0]
-            print(f"  📈 epoch={epoch:02d} | train_loss={avg_train_loss:.4f} | val_loss={avg_val_loss:.4f} | train_pplx={avg_train_perp:.2f} | val_pplx={avg_val_perp:.2f} | lr={lr_now:.2e}")
+            ts = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+            print(f"[{ts}] 📈 epoch={epoch:02d} | train_loss={avg_train_loss:.4f} | val_loss={avg_val_loss:.4f} | train_pplx={avg_train_perp:.2f} | val_pplx={avg_val_perp:.2f} | lr={lr_now:.2e}")
+
+            # TensorBoard Logging
+            writer.add_scalar("Loss/Train", avg_train_loss, epoch)
+            writer.add_scalar("Loss/Validation", avg_val_loss, epoch)
+            writer.add_scalar("Perplexity/Train", avg_train_perp, epoch)
+            writer.add_scalar("Perplexity/Validation", avg_val_perp, epoch)
+            writer.add_scalar("Stats/LearningRate", lr_now, epoch)
+            if torch.cuda.is_available():
+                writer.add_scalar("Stats/VRAM_MB", torch.cuda.max_memory_allocated() / 1024**2, epoch)
 
             if epoch % tcfg.save_every == 0 or epoch == (start_epoch + tcfg.num_epochs - 1):
                 name = model_name if model_name else mcfg.variant
