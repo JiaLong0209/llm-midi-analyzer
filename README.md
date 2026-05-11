@@ -521,6 +521,7 @@ poetry run python src/train_adapter.py \
     --mode musicbert \
     --musicbert manoskary/musicbert-large \
     --data_dir data/tokenized_8d \
+    --max_files 10000 \
     --batch_size 2 \
     --epochs 5
 ```

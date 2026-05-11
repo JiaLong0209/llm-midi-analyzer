@@ -223,21 +223,54 @@ class MusicBERTAdapter(nn.Module):
         
         d = config.d_llm
         
-        # 1. Load Pretrained Encoder first to get correct dimensions
+        # 1. Load Pretrained Encoder with robust prefix handling
         try:
             print(f"📦 Loading MusicBERT backbone from: {config.musicbert_model_path}")
-            self.bert = RobertaModel.from_pretrained(config.musicbert_model_path)
+            from transformers import AutoModel
+            self.bert = AutoModel.from_pretrained(config.musicbert_model_path)
+            
+            # Check if it loaded correctly, sometimes it loads as a wrapper
+            if hasattr(self.bert, "roberta"):
+                print("   Found .roberta attribute, extracting backbone...")
+                self.bert = self.bert.roberta
+            elif hasattr(self.bert, "bert"):
+                print("   Found .bert attribute, extracting backbone...")
+                self.bert = self.bert.bert
+                
         except Exception as e:
-            print(f"⚠️  Could not load pretrained weights ({e}). Initializing random RoBERTa.")
-            # Fallback configuration
-            bert_cfg = RobertaConfig(
-                vocab_size=1, # We don't use the embedding layer tokens
-                hidden_size=768,
-                num_hidden_layers=6,
-                num_attention_heads=12,
-                intermediate_size=3072,
-            )
-            self.bert = RobertaModel(bert_cfg)
+            print(f"⚠️  Standard loading had issues: {e}. Attempting manual state_dict fix...")
+            try:
+                from transformers import RobertaConfig, RobertaModel
+                import torch
+                # Initialize model with config only
+                bert_cfg = RobertaConfig.from_pretrained(config.musicbert_model_path)
+                self.bert = RobertaModel(bert_cfg)
+                
+                # Load state dict manually to strip prefixes
+                from huggingface_hub import hf_hub_download
+                model_file = hf_hub_download(repo_id=config.musicbert_model_path, filename="pytorch_model.bin")
+                sd = torch.load(model_file, map_location="cpu")
+                
+                # Strip 'bert.' or 'roberta.' prefixes
+                new_sd = {}
+                for k, v in sd.items():
+                    if k.startswith("bert."): new_sd[k[5:]] = v
+                    elif k.startswith("roberta."): new_sd[k[8:]] = v
+                    else: new_sd[k] = v
+                
+                self.bert.load_state_dict(new_sd, strict=False)
+                print("   ✅ Manual state_dict fix successful.")
+            except Exception as e2:
+                print(f"❌ All loading attempts failed ({e2}). Initializing random RoBERTa.")
+                # Fallback configuration
+                bert_cfg = RobertaConfig(
+                    vocab_size=1, # We don't use the embedding layer tokens
+                    hidden_size=768,
+                    num_hidden_layers=6,
+                    num_attention_heads=12,
+                    intermediate_size=3072,
+                )
+                self.bert = RobertaModel(bert_cfg)
 
         # 2. Resolve hidden dimension dynamically
         self.d_model = self.bert.config.hidden_size
