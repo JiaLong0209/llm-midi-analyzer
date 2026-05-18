@@ -48,3 +48,16 @@ llm-midi-analyzer/*.log
 llm-midi-analyzer/*.jsonl
 
 llm-midi-analyzer/runs/
+
+# --- Local Books & Large Caches ---
+llm-midi-analyzer/books/
+llm-midi-analyzer/output/
+llm-midi-analyzer/rag_cache/
+llm-midi-analyzer/midi_samples/
+llm-midi-analyzer/test_graph.png
+llm-midi-analyzer/test_graph_detailed.png
+llm-midi-analyzer/tests/test_graph.png
+llm-midi-analyzer/tests/test_graph_detailed.png
+llm-midi-analyzer/tests/test_output/
+*.pkl
+*.log

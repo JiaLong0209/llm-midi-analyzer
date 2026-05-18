@@ -36,3 +36,89 @@ git commit -m "feat: upload MIDI samples and VQ-VAE analysis results"
 ```
 
 **提醒**：我看你還有一個 `llm-midi-analyzer/MIDI-LLM` 的子模組內容有變動（modified content），如果你也想一起提交，記得先 `git add llm-midi-analyzer/MIDI-LLM`。
+
+
+
+but I want to also show the PIano roll in main view 
+,
+
+ and right-side is the chat section (like chatGPT UI), allow upload the MIDI files (enable switch other MIDIs like page function), and the chat section can be close or open. 
+
+also add a setting section for each phase all can be set,   
+
+ (current we can just use html midi player github repo, like 
+<section id="section1">
+<h2>1 player, 2 visualizers</h2>
+<midi-visualizer
+  type="piano-roll"
+  src="https://cdn.jsdelivr.net/gh/cifkao/html-midi-player@2b12128/twinkle_twinkle.mid">
+</midi-visualizer>
+<midi-visualizer
+  type="staff"
+  src="https://cdn.jsdelivr.net/gh/cifkao/html-midi-player@2b12128/twinkle_twinkle.mid">
+</midi-visualizer>
+<midi-player
+  src="https://cdn.jsdelivr.net/gh/cifkao/html-midi-player@2b12128/twinkle_twinkle.mid"
+  sound-font visualizer="#section1 midi-visualizer">
+</midi-player>
+</section>
+css: 
+/* Custom player style */
+#section3 midi-player {
+  display: block;
+  width: inherit;
+  margin: 4px;
+  margin-bottom: 0;
+}
+#section3 midi-player::part(control-panel) {
+  background: #ff5;
+  border: 2px solid #000;
+  border-radius: 10px 10px 0 0;
+}
+#section3 midi-player::part(play-button) {
+  color: #353;
+  border: 2px solid currentColor;
+  background-color: #4d4;
+  border-radius: 20px;
+  transition: all 0.2s;
+  content: 'hello';
+}
+#section3 midi-player::part(play-button):hover {
+  color: #0a0;
+  background-color: #5f5;
+  border-radius: 10px;
+}
+#section3 midi-player::part(time) {
+  font-family: monospace;
+}
+
+/* Custom visualizer style */
+#section3 midi-visualizer .piano-roll-visualizer {
+  background: #ffd;
+  border: 2px solid black;
+  border-top: none;
+  border-radius: 0 0 10px 10px;
+  margin: 4px;
+  margin-top: 0;
+  overflow: auto;
+}
+#section3 midi-visualizer svg rect.note {
+  opacity: 0.6;
+  stroke-width: 2;
+}
+#section3 midi-visualizer svg rect.note[data-instrument="0"]{
+  fill: #e22;
+  stroke: #500;
+}
+#section3 midi-visualizer svg rect.note[data-instrument="2"]{
+  fill: #2ee;
+  stroke: #055;
+}
+#section3 midi-visualizer svg rect.note[data-is-drum="true"]{
+  fill: #888;
+  stroke: #888;
+}
+#section3 midi-visualizer svg rect.note.active {
+  opacity: 0.9;
+  stroke: #000;
+}

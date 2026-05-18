@@ -22,8 +22,9 @@ dependencies = [
     "h5py (>=3.16.0,<4.0.0)",
     "miditok (>=3.0.6.post1,<4.0.0)",
     "symusic (>=0.6.0,<0.7.0)",
-    "transformers (==4.51.3)",
-    "xformers",
+    "transformers (>=4.51.3)",
+    "xformers (>=0.0.30)",
+    "torchvision",
 #    "vllm (>=0.7.0)",
     "librosa",
     "midi2audio",
@@ -32,8 +33,16 @@ dependencies = [
     "typing-extensions",
     "peft (>=0.19.1,<0.20.0)",
     "tiktoken (>=0.12.0,<0.13.0)",
-    "unsloth (>=2026.4.8)",
-    "tensorboard"
+    "unsloth (>=2026.5.2)",
+    "tensorboard",
+    "questionary (>=2.1.1,<3.0.0)",
+    "pypdf (>=6.11.0,<7.0.0)",
+    "matplotlib (>=3.10.9,<4.0.0)",
+    "fastapi (>=0.136.1,<0.137.0)",
+    "uvicorn (>=0.47.0,<0.48.0)",
+    "python-multipart (>=0.0.28,<0.0.29)",
+    "torchao (==0.13.0)",
+    "tokenizers (>=0.21.0,<0.22.0)"
 ]
 
 [tool.poetry]
@@ -43,11 +52,5 @@ package-mode = false
 requires = ["poetry-core>=2.0.0,<3.0.0"]
 build-backend = "poetry.core.masonry.api"
 
-[[tool.poetry.source]]
-name = "pytorch"
-url = "https://download.pytorch.org/whl/cu121"
-priority = "explicit"
-
-
 [tool.poetry.dependencies]
-torch = { version = ">=2.5.1,<2.11.0", source = "pytorch" }
+torch = ">=2.10.0,<2.11.0"

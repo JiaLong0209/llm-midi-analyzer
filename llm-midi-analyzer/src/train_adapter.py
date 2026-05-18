@@ -149,9 +149,13 @@ def load_llm_with_qlora(config: AdapterConfig):
             print("⚠️ Unsloth not installed. Falling back to standard transformers.")
 
     print(f"🤖 [Standard] Loading LLM from: {model_path}")
+    # Resolve compute_dtype from config
+    dtype_map = {"float32": torch.float32, "float16": torch.float16, "bfloat16": torch.bfloat16}
+    compute_dtype = dtype_map.get(config.torch_dtype, torch.float16) # Default to f16 for 4bit
+
     bnb_config = BitsAndBytesConfig(
         load_in_4bit=True,
-        bnb_4bit_compute_dtype=torch.float16,
+        bnb_4bit_compute_dtype=compute_dtype,
         bnb_4bit_use_double_quant=True,
         bnb_4bit_quant_type="nf4",
     )
@@ -212,6 +216,7 @@ def train(args):
         qlora_r=args.lora_r,
         qlora_alpha=args.lora_alpha,
         musicbert_model_path=args.musicbert,
+        torch_dtype=args.dtype,
     )
 
     # Build adapter
@@ -413,5 +418,6 @@ if __name__ == "__main__":
     parser.add_argument("--lora_alpha", type=int, default=32)
     parser.add_argument("--output_dir", default="checkpoints/adapter", help="Directory to save logs and checkpoints")
     parser.add_argument("--unsloth", action="store_true", help="Enable Unsloth for 2x faster training")
+    parser.add_argument("--dtype", choices=["float32", "float16", "bfloat16"], default="float16", help="Precision for models")
     args = parser.parse_args()
     train(args)

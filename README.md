@@ -427,8 +427,9 @@ Comparison log → `output/adapter_log.jsonl`:
 
 ### Prerequisites
 - **Hardware**: NVIDIA GPU with **8GB+ VRAM** (e.g., RTX 3060/4060) is recommended for training.
-- **Python**: 3.11+ (managed via `pyenv` or `conda`).
+- **Python**: 3.11+ (managed via `pyenv` or `poetry`).
 - **Dependency Manager**: [Poetry](https://python-poetry.org/) 2.0+.
+- **Node.js & pnpm** (Optional for WaveRoll visualizer modification): Node.js 18+ and `pnpm`.
 
 ### Setup Environment
 ```bash
@@ -526,7 +527,75 @@ poetry run python src/train_adapter.py \
     --epochs 5
 ```
 
+### Step 5: Inference (Analyze your MIDI)
+Use the unified `generate_analysis.py` script to analyze local MIDI files. This script automatically applies 4-bit quantization to the LLM to save VRAM.
 
+#### Example 1: MusicBERT Mode (Path C)
+```bash
+  poetry run python src/generate_analysis.py \
+  --mode musicbert \
+  --checkpoint checkpoints/adapter/musicbert_epoch05.pt \
+  --midi midi/sample.mid \
+  --dtype float16
+
+  poetry run python src/generate_analysis.py \
+  --mode musicbert \
+  --checkpoint checkpoints/adapter/musicbert_epoch10.pt \
+  --midi midi/251103_9.mid \
+  --seq_len 1024 \
+  --dtype float16
+```
+
+#### Example 2: VQ-VAE Mode (Path B)
+```bash
+poetry run python src/generate_analysis.py \
+    --mode vqvae \
+    --vqvae checkpoints/best/vqvae_model.pt \
+    --checkpoint checkpoints/adapter/vqvae_epoch10.pt \
+    --midi midi/sample.mid
+```
+
+#### Example 3: Direct Mode (Path A)
+```bash
+poetry run python src/generate_analysis.py \
+    --mode direct \
+    --checkpoint checkpoints/adapter/direct_adapter_epoch10.pt \
+    --midi midi/sample.mid
+```
+
+### Step 6: Interactive CLI Workflow
+For a text-only terminal interaction, use the command-line app:
+```bash
+poetry run python src/app.py
+```
+
+### Step 7: Premium Web GUI Interface (FastAPI + WaveRoll DAW-like Visualizer)
+For the ultimate visual experience—featuring interactive LLM chat, real-time MIDI playback with WaveRoll piano keys, multi-agent RAG search, and dark-themed visualizers:
+
+```bash
+# Start the backend FastAPI server
+poetry run python src/app_web.py
+```
+
+Then open your browser and go to:
+**`http://localhost:8080`**
+
+#### Key Web Features:
+- **DAW-grade WaveRoll & Staff Views**: Dynamic piano keyboard keys, bold time axis markings, instant note height vertical zoom adjustments, and dynamic style configuration sync.
+- **Advanced Multi-Agent RAG Controls**: Hot-toggles for Local Textbook Search (CAG) and GraphRAG Knowledge Graph Search.
+- **Server Sample Library**: Browse, play, and drag-and-drop server MIDI files instantly.
+- **Gemma Temperature Config**: Set default temperature parameters to `0` for stable, logical musical deductions.
+
+### Optional: Compile WaveRoll Custom Component
+If you edit the PixiJS canvas code in `wave-roll/` and need to compile it:
+```bash
+cd wave-roll
+pnpm install
+pnpm build
+
+# Copy compiled assets to the static website bundle folder
+cp -r dist/* ../src/static/lib/wave-roll/
+```
 
 ---
 

@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LLM MIDI Analyzer | OmniMuse</title>
+    
+    <!-- Dependencies -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script type="text/javascript" src="https://unpkg.com/vis-network/standalone/umd/vis-network.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/combine/npm/tone@14.7.58,npm/@magenta/music@1.23.1/es6/core.js,npm/focus-visible@5,npm/html-midi-player@1.5.0"></script>
+    <script type="module" src="lib/wave-roll/wave-roll.es.js"></script>
+    
+    <!-- KaTeX for LaTeX rendering -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
+        onload="document.addEventListener('DOMContentLoaded', () => {})"></script>
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="app-container">
+    <!-- Left Sidebar: MIDI Library -->
+    <aside class="sidebar-left" id="sidebar-left">
+        <div class="sidebar-header">
+            <h3>MIDI Library</h3>
+            <button class="icon-btn" id="btn-refresh-samples" title="Refresh">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 4v6h-6"></path><path d="M1 20v-6h6"></path><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path></svg>
+            </button>
+        </div>
+        <div class="midi-list" id="midi-sample-list">
+            <div class="loading-spinner">Loading...</div>
+        </div>
+        <div class="sidebar-footer">
+            <p>Drag files to visualizer</p>
+        </div>
+    </aside>
+    <div class="sidebar-resizer" id="left-sidebar-resizer" title="Drag to resize"></div>
+
+    <!-- Left/Center Main Area -->
+    <main class="main-view">
+        <header class="top-nav">
+            <div class="logo">
+                <span class="glow-text">OmniMuse</span> <span class="badge">PRO</span>
+            </div>
+            <div class="view-toggles">
+                <button id="btn-piano-roll" class="toggle-btn active">Piano Roll</button>
+                <button id="btn-graph-rag" class="toggle-btn">Graph RAG</button>
+            </div>
+            <button id="btn-toggle-chat" class="icon-btn" title="Toggle Chat/Settings">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+            </button>
+        </header>
+
+        <div class="view-content">
+            <!-- Piano Roll + Staff View -->
+            <div id="piano-roll-view" class="view-panel active">
+                <div class="player-wrapper">
+                    <div class="zoom-controls" style="display:flex; justify-content:space-between; width:100%; align-items:center; flex-wrap:wrap; gap:16px;">
+                        <div style="display:flex; align-items:center; gap:8px;">
+                            <span>🔍 Zoom</span>
+                            <input type="range" id="zoom-slider" min="1" max="4" step="0.1" value="1.5" title="Scale note height">
+                            <span id="zoom-label">1.5x</span>
+                        </div>
+                        
+                        <!-- Grid Subdivision Quick Controls directly in the Piano Roll Section! -->
+                        <div class="grid-quick-controls" style="display:flex; align-items:center; gap:8px; background:rgba(255,255,255,0.03); padding:4px 8px; border-radius:8px; border:1px solid rgba(255,255,255,0.05);">
+                            <span style="font-size:12px; color:var(--text-secondary); font-weight:500;">Grid:</span>
+                            <input type="number" id="pr-grid-sub-input" min="1" max="64" value="4" style="width:48px; height:24px; border-radius:4px; border:1px solid var(--border-color); background:var(--bg-card); color:var(--text-primary); text-align:center; font-size:11px; outline:none;" title="Type custom grid subdivision (e.g. 3, 4, 8)">
+                            <select id="pr-grid-sub-select" style="height:24px; border-radius:4px; border:1px solid var(--border-color); background:var(--bg-card); color:var(--text-primary); padding:0 4px; font-size:11px; cursor:pointer; outline:none;">
+                                <option value="1">4th (Quarter)</option>
+                                <option value="2">8th (Eighth)</option>
+                                <option value="3">3rd (Triplet 8th)</option>
+                                <option value="4" selected>16th (Sixteenth)</option>
+                                <option value="6">6th (Triplet 16th)</option>
+                                <option value="8">32nd (Thirty-second)</option>
+                            </select>
+                            <button id="btn-pr-grid-double" style="height:24px; padding:0 8px; border-radius:4px; border:1px solid var(--border-color); background:var(--bg-card); color:var(--text-primary); cursor:pointer; font-size:10px; font-weight:bold; transition: all 0.2s;" title="Double Grid Density (x2)">x2</button>
+                            <button id="btn-pr-grid-halve" style="height:24px; padding:0 8px; border-radius:4px; border:1px solid var(--border-color); background:var(--bg-card); color:var(--text-primary); cursor:pointer; font-size:10px; font-weight:bold; transition: all 0.2s;" title="Halve Grid Density (/2)">/2</button>
+                        </div>
+                    </div>
+                    
+                    <div class="visualizers-layout">
+                        <div id="roll-container" class="vis-sub-group active">
+                            <midi-visualizer type="piano-roll" id="main-visualizer" src=""></midi-visualizer>
+                            <wave-roll id="waveroll-visualizer" style="width: 100%; height: 100%;" readonly></wave-roll>
+                        </div>
+                        <div id="vis-resizer" class="vis-resizer" style="height: 6px; background: rgba(255,255,255,0.05); cursor: row-resize; transition: background 0.2s; border-radius: 3px; margin: 4px 0; display: flex; align-items: center; justify-content: center; z-index: 10;">
+                            <div style="width: 30px; height: 2px; background: rgba(255,255,255,0.3); border-radius: 1px;"></div>
+                        </div>
+                        
+                        <div id="staff-container" class="vis-sub-group">
+                            <midi-visualizer type="staff" id="staff-visualizer" src=""></midi-visualizer>
+                        </div>
+                    </div>
+
+                    <midi-player id="main-player" sound-font="https://storage.googleapis.com/magentadata/js/soundfonts/sgm_plus"></midi-player>
+                </div>
+                <div class="empty-state" id="player-empty-state">
+                    <p>Upload a MIDI file from the chat panel to begin visualization.</p>
+                </div>
+            </div>
+
+            <!-- Graph RAG View -->
+            <div id="graph-rag-view" class="view-panel">
+                <div id="network-container"></div>
+                <!-- Node Details Panel -->
+                <div id="node-details-panel" class="details-panel closed">
+                    <button id="close-details-btn" class="icon-btn close-btn">✕</button>
+                    <h2 id="details-title">Node Title</h2>
+                    <span id="details-category" class="badge">Category</span>
+                    <div class="details-content">
+                        <p id="details-desc">Description will appear here.</p>
+                        <a id="details-source" href="#" target="_blank">View Source</a>
+                    </div>
+                </div>
+                <div class="empty-state" id="graph-empty-state">
+                    <p>Run an analysis to generate the knowledge graph.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Resizer Handle -->
+    <div id="sidebar-resizer"></div>
+
+    <!-- Right Sidebar (Chat & Settings) -->
+    <aside class="sidebar" id="sidebar">
+        
+        <div class="sidebar-tabs">
+            <button class="tab-btn active" data-target="chat-tab">Chat</button>
+            <button class="tab-btn" data-target="history-tab">History</button>
+            <button class="tab-btn" data-target="settings-tab">Settings</button>
+        </div>
+
+        <!-- Chat Interface -->
+        <div class="tab-content active" id="chat-tab">
+            <div id="chat-range-indicator" style="display: flex; padding: 8px 12px; background: rgba(30, 41, 59, 0.7); border-bottom: 1px solid var(--ui-border); font-size: 11px; color: var(--accent); align-items: center; justify-content: space-between; gap: 8px;">
+                <span style="display: flex; align-items: center; gap: 4px;">
+                    Active Analysis Range: Measure 
+                    <input type="number" id="chat-start-bar" placeholder="Start" min="0" style="width: 50px; background: rgba(0,0,0,0.4); border: 1px solid var(--border-color); color: #fff; padding: 2px 6px; border-radius: 4px; font-size: 11px; text-align: center; outline: none; transition: border-color 0.2s;">
+                    ~
+                    <input type="number" id="chat-end-bar" placeholder="End" min="0" style="width: 50px; background: rgba(0,0,0,0.4); border: 1px solid var(--border-color); color: #fff; padding: 2px 6px; border-radius: 4px; font-size: 11px; text-align: center; outline: none; transition: border-color 0.2s;">
+                </span>
+                <span style="font-size: 10px; opacity: 0.8; background: rgba(37, 99, 235, 0.2); padding: 2px 6px; border-radius: 4px; white-space: nowrap;">Dynamic Context</span>
+            </div>
+            <div class="chat-history" id="chat-history">
+                <div class="message bot-message">
+                    <div class="bubble">
+                        Welcome to OmniMuse Pro! Upload a MIDI file to analyze, or just type a question below to chat with the AI.
+                    </div>
+                </div>
+            </div>
+
+            <div class="chat-input-area">
+                <input type="file" id="midi-upload" accept=".mid,.midi" style="display: none;">
+                <button class="upload-btn" onclick="document.getElementById('midi-upload').click()" title="Upload MIDI">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line></svg>
+                </button>
+                <div class="input-wrapper" style="flex: 1; display: flex; flex-direction: column;">
+                    <div class="upload-status" id="upload-status"></div>
+                    <input type="text" id="chat-input" placeholder="Ask AI about the music..." autocomplete="off">
+                </div>
+                <button class="send-btn" id="btn-send">Send</button>
+                <button class="send-btn analyze-btn" id="btn-analyze" style="display: none;">Analyze</button>
+            </div>
+        </div>
+
+        <!-- History Tab -->
+        <div class="tab-content" id="history-tab">
+            <div class="history-toolbar">
+                <button class="upload-btn" id="btn-refresh-history" title="Refresh" style="display: flex; align-items: center; justify-content: center; gap: 8px; padding: 8px 16px; margin: 4px 8px; font-weight: 500; font-size: 12px; border-radius: 8px; background: rgba(255,255,255,0.06); border: 1px solid var(--border-color); color: #fff; cursor: pointer; transition: all 0.2s;">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="flex-shrink: 0;"><polyline points="23 4 23 10 17 10"></polyline><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"></path></svg>
+                    Refresh
+                </button>
+            </div>
+            <div class="history-list" id="history-list">
+                <p class="text-muted" style="padding:1rem;">Loading analyses...</p>
+            </div>
+        </div>
+
+        <!-- Settings Interface -->
+        <div class="tab-content" id="settings-tab">
+            <div class="settings-group">
+                <h3>Model</h3>
+                <select class="custom-select" id="cfg-model">
+                    <option value="gemini-3.1-flash-lite" selected>Gemini 3.1 Flash Lite</option>
+                    <option value="gemma-4-31b-it">Gemma 4-31B IT</option>
+                    <option value="gemini-2.0-flash">Gemini 2.0 Flash</option>
+                    <option value="gemini-2.5-pro">Gemini 2.5 Pro</option>
+                    <option value="gemini-1.5-pro">Gemini 1.5 Pro</option>
+                </select>
+                <label class="settings-label">Temperature: <span id="temp-label">0</span></label>
+                <input type="range" class="full-slider" id="cfg-temperature" min="0" max="1" step="0.05" value="0">
+            </div>
+
+            <div class="settings-group">
+                <h3>Music21</h3>
+                <label class="toggle-switch">
+                    <input type="checkbox" checked id="cfg-m21">
+                    <span class="slider"></span>
+                    <span class="label-text">Enable Music21 Extraction</span>
+                </label>
+                <label class="toggle-switch">
+                    <input type="checkbox" id="cfg-detailed-tracks">
+                    <span class="slider"></span>
+                    <span class="label-text">Include Detailed Tracks (slow)</span>
+                </label>
+            </div>
+
+            <div class="settings-group">
+                <h3>Analysis Bar Range</h3>
+                <div style="display: flex; gap: 8px; align-items: center;">
+                    <div style="flex: 1;">
+                        <label class="settings-label" style="display:block; margin-bottom:4px; font-size:12px; color:var(--text-secondary);">Start Bar</label>
+                        <input type="number" class="custom-select" id="cfg-start-bar" placeholder="e.g. 4" min="0" style="width: 100%;">
+                    </div>
+                    <span style="margin-top: 20px; color: var(--text-secondary);">~</span>
+                    <div style="flex: 1;">
+                        <label class="settings-label" style="display:block; margin-bottom:4px; font-size:12px; color:var(--text-secondary);">End Bar</label>
+                        <input type="number" class="custom-select" id="cfg-end-bar" placeholder="e.g. 10" min="0" style="width: 100%;">
+                    </div>
+                </div>
+                <p style="font-size: 11px; color: var(--text-secondary); margin-top: 6px;">Leave empty to analyze the entire piece.</p>
+            </div>
+
+            <div class="settings-group">
+                <h3>Graph RAG</h3>
+                <label class="toggle-switch">
+                    <input type="checkbox" checked id="cfg-rag">
+                    <span class="slider"></span>
+                    <span class="label-text">Enable Graph RAG (Web Search)</span>
+                </label>
+                <label class="toggle-switch">
+                    <input type="checkbox" id="cfg-chat-rag">
+                    <span class="slider"></span>
+                    <span class="label-text">Enable Web Search in Chat</span>
+                </label>
+                <div style="margin-top: 10px;">
+                    <label class="settings-label" style="display:block; margin-bottom:4px; font-size:12px; color:var(--text-secondary);">Search Language</label>
+                    <select class="custom-select" id="cfg-rag-lang" style="width: 100%; margin-bottom: 8px;">
+                        <option value="zh-tw" selected>Traditional Chinese (繁體中文)</option>
+                        <option value="en">English (English)</option>
+                        <option value="ja">Japanese (日本語)</option>
+                        <option value="ko">Korean (한국어)</option>
+                        <option value="ru">Russian (Русский)</option>
+                        <option value="custom">Other / Custom...</option>
+                    </select>
+                    <input type="text" class="custom-select" id="cfg-rag-lang-custom" placeholder="e.g. Spanish, German..." style="width: 100%; display: none; margin-top: 4px;">
+                </div>
+                <label class="toggle-switch" style="margin-top: 8px;">
+                    <input type="checkbox" id="cfg-merge-graphs">
+                    <span class="slider"></span>
+                    <span class="label-text">Merge Historical RAG Graphs</span>
+                </label>
+            </div>
+
+            <div class="settings-group">
+                <h3>CAG (Local Books)</h3>
+                <label class="toggle-switch">
+                    <input type="checkbox" checked id="cfg-cag">
+                    <span class="slider"></span>
+                    <span class="label-text">Enable CAG (PDF Textbooks)</span>
+                </label>
+            </div>
+
+            <div class="settings-group">
+                <h3>UI Settings</h3>
+                <label class="toggle-switch">
+                    <input type="checkbox" id="cfg-show-staff">
+                    <span class="slider"></span>
+                    <span class="label-text">Show Staff Visualizer</span>
+                </label>
+                <label class="toggle-switch">
+                    <input type="checkbox" id="toggle-waveroll" checked>
+                    <span class="slider"></span>
+                    <span class="label-text">Use WaveRoll (vs Magenta)</span>
+                </label>
+            </div>
+
+            <div class="settings-group">
+                <h3>WaveRoll Settings</h3>
+                <div style="margin-bottom:12px;">
+                    <label class="settings-label" style="display:block; margin-bottom:4px; font-size:12px; color:var(--text-secondary);">Note Color</label>
+                    <input type="color" id="cfg-waveroll-note-color" value="#ef4444" style="width:100%; height:32px; border-radius:6px; border:none; background:transparent; cursor:pointer;">
+                </div>
+                <div style="margin-bottom:12px;">
+                    <label class="settings-label" style="display:block; margin-bottom:4px; font-size:12px; color:var(--text-secondary);">Background Color</label>
+                    <input type="color" id="cfg-waveroll-bg-color" value="#0f172a" style="width:100%; height:32px; border-radius:6px; border:none; background:transparent; cursor:pointer;">
+                </div>
+                <div style="margin-bottom:12px;">
+                    <label class="settings-label" style="display:block; margin-bottom:4px; font-size:12px; color:var(--text-secondary); display:flex; justify-content:space-between;">
+                        <span>Time Font Size</span>
+                        <span id="waveroll-font-size-val">13px</span>
+                    </label>
+                    <input type="range" class="full-slider" id="cfg-waveroll-font-size" min="9" max="20" step="1" value="13" style="width:100%;">
+                </div>
+                <div style="margin-bottom:12px;">
+                    <label class="settings-label" style="display:block; margin-bottom:4px; font-size:12px; color:var(--text-secondary); display:flex; justify-content:space-between;">
+                        <span>Vertical Zoom</span>
+                        <span id="waveroll-zoom-val">2.5x</span>
+                    </label>
+                    <input type="range" class="full-slider" id="cfg-waveroll-zoom" min="1.0" max="4.0" step="0.1" value="2.5" style="width:100%;">
+                </div>
+                <div style="margin-bottom:12px; display:flex; align-items:center; justify-content:space-between;">
+                    <label class="settings-label" style="font-size:12px; color:var(--text-secondary);">Show Time in Seconds</label>
+                    <label class="toggle-switch small">
+                        <input type="checkbox" id="cfg-waveroll-show-time">
+                        <span class="slider"></span>
+                    </label>
+                </div>
+                <div style="margin-bottom:12px; display:flex; align-items:center; justify-content:space-between;">
+                    <label class="settings-label" style="font-size:12px; color:var(--text-secondary);">Color Notes by Track</label>
+                    <label class="toggle-switch small">
+                        <input type="checkbox" id="cfg-waveroll-color-by-track" checked>
+                        <span class="slider"></span>
+                    </label>
+                </div>
+                <div style="margin-bottom:12px; display:flex; align-items:center; justify-content:space-between;">
+                    <label class="settings-label" style="font-size:12px; color:var(--text-secondary);">Smooth Scroll Transition</label>
+                    <label class="toggle-switch small">
+                        <input type="checkbox" id="cfg-waveroll-transition-enabled" checked>
+                        <span class="slider"></span>
+                    </label>
+                </div>
+                <div id="sidebar-duration-container" style="margin-bottom:12px; transition: opacity 0.2s ease;">
+                    <label class="settings-label" style="display:block; margin-bottom:4px; font-size:12px; color:var(--text-secondary); display:flex; justify-content:space-between;">
+                        <span>Transition Duration</span>
+                        <span id="waveroll-transition-duration-val" style="color:var(--accent);">0.05s</span>
+                    </label>
+                    <input type="range" class="full-slider" id="cfg-waveroll-transition-duration" min="0.01" max="0.30" step="0.01" value="0.05" style="width:100%;">
+                </div>
+                <div style="margin-bottom:4px;">
+                    <label class="settings-label" style="display:block; margin-bottom:4px; font-size:12px; color:var(--text-secondary); display:flex; justify-content:space-between;">
+                        <span>Grid Tempo (BPM)</span>
+                        <span id="waveroll-tempo-val">120 BPM</span>
+                    </label>
+                    <input type="range" class="full-slider" id="cfg-waveroll-tempo" min="40" max="240" step="1" value="120" style="width:100%;">
+                </div>
+                <div style="margin-top:12px; margin-bottom:12px;">
+                    <label class="settings-label" style="display:block; margin-bottom:4px; font-size:12px; color:var(--text-secondary);">Beats Per Bar (Time Signature)</label>
+                    <select id="cfg-waveroll-beats-per-bar" class="full-slider" style="width:100%; height:32px; border-radius:6px; border:1px solid var(--border-color); background:var(--bg-card); color:var(--text-primary); padding:0 8px; cursor:pointer; outline:none; transition: border-color 0.2s;">
+                        <option value="4" selected>4 beats (4/4, 12/8)</option>
+                        <option value="3">3 beats (3/4, 9/8)</option>
+                        <option value="2">2 beats (2/4, 6/8)</option>
+                        <option value="5">5 beats (5/4)</option>
+                        <option value="6">6 beats (6/4)</option>
+                        <option value="7">7 beats (7/4)</option>
+                    </select>
+                </div>
+                <div style="margin-bottom:12px;">
+                    <label class="settings-label" style="display:block; margin-bottom:4px; font-size:12px; color:var(--text-secondary); display:flex; justify-content:space-between;">
+                        <span>Grid Subdivision</span>
+                        <span id="waveroll-grid-sub-val" style="color:var(--accent);">16th</span>
+                    </label>
+                    <div style="display:flex; gap:8px; align-items:center;">
+                        <input type="number" id="cfg-waveroll-grid-sub-input" min="1" max="64" value="4" style="width:52px; height:32px; border-radius:6px; border:1px solid var(--border-color); background:var(--bg-card); color:var(--text-primary); text-align:center; font-size:12px; outline:none;" title="Type custom grid subdivision (e.g. 3, 4, 8)">
+                        <select id="cfg-waveroll-grid-sub" class="full-slider" style="flex:1; height:32px; border-radius:6px; border:1px solid var(--border-color); background:var(--bg-card); color:var(--text-primary); padding:0 8px; cursor:pointer; outline:none; transition: border-color 0.2s;">
+                            <option value="1">4th (Quarter)</option>
+                            <option value="2">8th (Eighth)</option>
+                            <option value="3">Triplet 8th (3rd)</option>
+                            <option value="4" selected>16th (Sixteenth)</option>
+                            <option value="6">Triplet 16th (6th)</option>
+                            <option value="8">32nd (Thirty-second)</option>
+                        </select>
+                        <button id="btn-waveroll-grid-double" style="height:32px; padding:0 12px; border-radius:6px; border:1px solid var(--border-color); background:var(--bg-card); color:var(--text-primary); cursor:pointer; font-size:11px; font-weight:bold; transition:all 0.2s; display:flex; align-items:center; justify-content:center;" title="Double Grid Density (x2)">x2</button>
+                        <button id="btn-waveroll-grid-halve" style="height:32px; padding:0 12px; border-radius:6px; border:1px solid var(--border-color); background:var(--bg-card); color:var(--text-primary); cursor:pointer; font-size:11px; font-weight:bold; transition:all 0.2s; display:flex; align-items:center; justify-content:center;" title="Halve Grid Density (/2)">/2</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </aside>
+
+</div>
+
+<!-- Floating Overlay for Inspecting Analysis Details -->
+<div id="analysis-details-overlay" class="analysis-details-overlay closed" style="position: fixed; top: 0; right: 0; height: 100%; width: 480px; min-width: 320px; max-width: 90vw; background: rgba(15, 23, 42, 0.95); backdrop-filter: blur(20px); border-left: 1px solid var(--border-color); box-shadow: -10px 0 30px rgba(0,0,0,0.5); z-index: 9999; display: flex; flex-direction: column; transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1); transform: translateX(100%);">
+    <!-- Width Resizer Handle on Left Edge -->
+    <div id="overlay-width-resizer" style="position: absolute; top: 0; left: -4px; width: 8px; height: 100%; cursor: col-resize; z-index: 10; background: transparent; transition: background 0.2s;"></div>
+    
+    <div style="padding: 16px; border-bottom: 1px solid var(--border-color); display: flex; justify-content: space-between; align-items: center; background: rgba(30, 41, 59, 0.4);">
+        <div>
+            <h2 id="overlay-title" style="margin: 0; font-size: 16px; font-weight: 600; color: #fff; text-overflow: ellipsis; overflow: hidden; white-space: nowrap; max-width: 340px;">Analysis Details</h2>
+            <div id="overlay-subtitle" style="font-size: 11px; color: var(--text-secondary); margin-top: 2px;">MIDI & Metadata</div>
+        </div>
+        <button id="overlay-close-btn" style="background: transparent; border: none; color: var(--text-secondary); font-size: 18px; cursor: pointer; padding: 4px; border-radius: 4px; display: flex; align-items: center; justify-content: center; transition: color 0.2s; outline: none;">✕</button>
+    </div>
+    
+    <!-- Tab Navigation inside Details Overlay -->
+    <div style="display: flex; background: rgba(15, 23, 42, 0.6); border-bottom: 1px solid var(--border-color); overflow-x: auto; scrollbar-width: none;">
+        <button class="overlay-tab-btn active" data-tab="tab-report">Report</button>
+        <button class="overlay-tab-btn" data-tab="tab-llama">Llama</button>
+        <button class="overlay-tab-btn" data-tab="tab-m21">music21</button>
+        <button class="overlay-tab-btn" data-tab="tab-rag">RAG</button>
+        <button class="overlay-tab-btn" data-tab="tab-cag">CAG</button>
+    </div>
+    
+    <!-- Tab Contents -->
+    <div style="flex: 1; overflow-y: auto; padding: 20px; box-sizing: border-box; display: flex; flex-direction: column; gap: 16px;">
+        <div id="tab-report" class="overlay-tab-content active">
+            <div id="overlay-report-content" class="markdown-body" style="color: #cbd5e1; font-size: 13px; line-height: 1.6;">Report content will load here.</div>
+        </div>
+        <div id="tab-llama" class="overlay-tab-content" style="display: none;">
+            <pre id="overlay-llama-content" style="background: rgba(0,0,0,0.3); border: 1px solid var(--border-color); border-radius: 8px; padding: 12px; color: #a7f3d0; font-family: monospace; font-size: 12px; white-space: pre-wrap; margin: 0; line-height: 1.5; overflow-x: auto;"></pre>
+        </div>
+        <div id="tab-m21" class="overlay-tab-content" style="display: none;">
+            <pre id="overlay-m21-content" style="background: rgba(0,0,0,0.3); border: 1px solid var(--border-color); border-radius: 8px; padding: 12px; color: #93c5fd; font-family: monospace; font-size: 12px; white-space: pre-wrap; margin: 0; line-height: 1.5; overflow-x: auto;"></pre>
+        </div>
+        <div id="tab-rag" class="overlay-tab-content" style="display: none;">
+            <div id="overlay-rag-content" style="color: #e2e8f0; font-size: 13px; line-height: 1.6;">RAG context will load here.</div>
+        </div>
+        <div id="tab-cag" class="overlay-tab-content" style="display: none;">
+            <div id="overlay-cag-content" style="color: #e2e8f0; font-size: 13px; line-height: 1.6;">CAG textbooks context will load here.</div>
+        </div>
+    </div>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>

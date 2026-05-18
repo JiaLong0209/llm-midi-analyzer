@@ -226,8 +226,19 @@ class MusicBERTAdapter(nn.Module):
         # 1. Load Pretrained Encoder with robust prefix handling
         try:
             print(f"📦 Loading MusicBERT backbone from: {config.musicbert_model_path}")
+            import torch
             from transformers import AutoModel
-            self.bert = AutoModel.from_pretrained(config.musicbert_model_path)
+            
+            # Resolve dtype from config string
+            dtype_map = {"float32": torch.float32, "float16": torch.float16, "bfloat16": torch.bfloat16}
+            target_dtype = dtype_map.get(config.torch_dtype, torch.float32)
+            print(f"   Using precision: {config.torch_dtype}")
+
+            self.bert = AutoModel.from_pretrained(
+                config.musicbert_model_path, 
+                add_pooling_layer=False,
+                torch_dtype=target_dtype
+            )
             
             # Check if it loaded correctly, sometimes it loads as a wrapper
             if hasattr(self.bert, "roberta"):

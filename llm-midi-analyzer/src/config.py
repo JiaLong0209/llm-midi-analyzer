@@ -11,7 +11,12 @@ D — Dependency Inversion: Trainer accepts an abstract IConfig, not a concrete 
 from __future__ import annotations
 from dataclasses import dataclass, field, asdict
 from typing import Protocol, runtime_checkable
+import os
+from dotenv import load_dotenv
 import json
+
+
+load_dotenv()
 
 
 # ────────────────────────────────────────────────────────────────
@@ -127,10 +132,31 @@ class AdapterConfig:
     theory_context: str = ""              # RAG placeholder <theory_context>
     seq_len: int = 128                   # Default sequence length
     use_unsloth: bool = False            # Use Unsloth for 2x faster training
+    torch_dtype: str = "float32"         # "float32", "float16", or "bfloat16"
+    
+    # Generation Settings (Professional Report Defaults)
+    gen_max_new_tokens: int = 1024
+    gen_do_sample: bool = False          # False = Greedy Decoding (more stable/factual)
+    gen_temperature: float = 0.7
+    gen_top_p: float = 0.9
+    gen_repetition_penalty: float = 1.2
 
     def to_dict(self) -> dict: return asdict(self)
     @classmethod
     def from_dict(cls, d: dict) -> "AdapterConfig": return cls(**d)
+
+# ────────────────────────────────────────────────────────────────
+# App Workflow Config
+# ────────────────────────────────────────────────────────────────
+@dataclass
+class AppWorkflowConfig:
+    enable_music21: bool = True
+    enable_final_report: bool = True
+    output_dir: str = "output/analysis"
+    llm_model_name: str = os.getenv("LLM_MODEL_NAME", "models/gemma-4-31b-it")
+    llm_temperature: float = 0.3
+    graph_viz_show_desc: bool = False  # Toggle node description in visualization
+    graph_cache_enabled: bool = True   # Enable/disable graph persistence
 
 
 # ────────────────────────────────────────────────────────────────

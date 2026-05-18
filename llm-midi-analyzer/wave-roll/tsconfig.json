@@ -1,0 +1,30 @@
+{
+  "compilerOptions": {
+    "target": "ES2020",
+    "module": "ESNext",
+    "lib": ["ES2020", "DOM", "DOM.Iterable"],
+    "moduleResolution": "node",
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "strict": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "declaration": true,
+    "declarationMap": true,
+    "outDir": "dist",
+    "rootDir": "src",
+    "baseUrl": ".",
+    "paths": {
+      "@/core/*": ["src/lib/core/*"],
+      "@/demos/*": ["src/demos/*"],
+      "@/lib/*": ["src/lib/*"],
+      "@/components/*": ["src/lib/components/*"],
+      "@/assets/*": ["src/assets/*"],
+      "@/types/*": ["src/lib/types/*"],
+      "@/types": ["src/lib/types/index.ts"],
+      "@/web-component": ["src/web-component.ts"]
+    }
+  },
+  "include": ["src/**/*"],
+  "exclude": ["node_modules", "dist", "**/*.test.ts"]
+}
